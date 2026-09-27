@@ -8,44 +8,24 @@
   !function(f,b,e,v,n,t,s) {
     if (f.fbq) return;
     n = f.fbq = function() {
-      n.callMethod
-        ? n.callMethod.apply(n, arguments)
-        : n.queue.push(arguments);
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
     };
     if (!f._fbq) f._fbq = n;
-    n.push = n;
-    n.loaded = true;
-    n.version = "2.0";
-    n.queue = [];
-    t = b.createElement(e);
-    t.async = true;
-    t.src = v;
-    s = b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t, s);
-  }(
-    window,
-    document,
-    "script",
-    "https://connect.facebook.net/en_US/fbevents.js"
-  );
+    n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+    t = b.createElement(e); t.async = true; t.src = v;
+    s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+  }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
 
-  // META PIXEL ID
+  // Ganti dengan Meta Pixel ID Anda
   fbq("init", "DASCJ93C77U5PB60BNTG"); 
   fbq("track", "PageView");
   </script>
-
   <noscript>
-    <img
-      height="1"
-      width="1"
-      style="display:none"
-      src="https://www.facebook.com/tr?id=DASCJ93C77U5PB60BNTG&ev=PageView&noscript=1"
-      alt=""
-    />
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=DASCJ93C77U5PB60BNTG&ev=PageView&noscript=1" alt="" />
   </noscript>
 
   <!-- =========================
-       TIKTOK PIXEL (DISINKRONKAN)
+       TIKTOK PIXEL
   ========================== -->
   <script>
   !function (w, d, t) {
@@ -53,7 +33,7 @@
     var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
     ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-    // TIKTOK PIXEL ID (Sesuai Dashboard TikTok Anda)
+    // Ganti dengan TikTok Pixel ID Anda
     ttq.load('DASCJ93C77U5PB60BNTG');
     ttq.page();
   }(window, document, 'ttq');
@@ -61,1935 +41,185 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#080808" />
-
-  <title>Verifikasi Keamanan</title>
+  <title>Penawaran Spesial Hari Ini</title>
 
   <style>
-    :root {
-      --black: #080808;
-      --black-soft: #111111;
-      --panel: rgba(22, 22, 22, .88);
-      --gold: #d9a441;
-      --gold-light: #ffe08a;
-      --gold-dark: #9b6a13;
-      --white: #fffaf0;
-      --muted: #b7b0a1;
-      --line: rgba(217, 164, 65, .28);
-      --danger: #ff4d4d;
-    }
-
-    * {
-      box-sizing: border-box;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-    }
-
-    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      overflow-x: hidden;
-      overflow-y: auto;
-      color: var(--white);
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(
-          circle at 50% -10%,
-          rgba(217, 164, 65, .16),
-          transparent 34%
-        ),
-        radial-gradient(
-          circle at 0% 100%,
-          rgba(217, 164, 65, .10),
-          transparent 30%
-        ),
-        var(--black);
     }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      opacity: .08;
-      pointer-events: none;
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.1) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.1) 1px,
-          transparent 1px
-        );
-      background-size: 42px 42px;
-      mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent 90%
-      );
-    }
-
-    .orb {
-      position: fixed;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(50px);
-      opacity: .15;
-      background: var(--gold);
-      animation: floatOrb 8s ease-in-out infinite;
-    }
-
-    .orb-one {
-      top: -150px;
-      right: -80px;
-    }
-
-    .orb-two {
-      bottom: -160px;
-      left: -100px;
-      animation-delay: -3s;
-    }
-
-    .card {
-      position: relative;
-      width: min(100%, 530px);
-      padding: 46px 34px 34px;
-      text-align: center;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.055),
-          transparent 35%
-        ),
-        var(--panel);
-      box-shadow:
-        0 25px 90px rgba(0, 0, 0, .7),
-        0 0 60px rgba(217, 164, 65, .08),
-        inset 0 1px 0 rgba(255, 255, 255, .08);
-      backdrop-filter: blur(18px);
-      animation: cardIn .8s cubic-bezier(.2,.8,.2,1) both;
-    }
-
-    .card::before,
-    .card::after {
-      content: "";
-      position: absolute;
-      width: 90px;
-      height: 90px;
-      border-color: var(--gold);
-      opacity: .7;
-      pointer-events: none;
-    }
-
-    .card::before {
-      top: 18px;
-      left: 18px;
-      border-top: 1px solid;
-      border-left: 1px solid;
-      border-radius: 12px 0 0 0;
-    }
-
-    .card::after {
-      right: 18px;
-      bottom: 18px;
-      border-right: 1px solid;
-      border-bottom: 1px solid;
-      border-radius: 0 0 12px 0;
-    }
-
-    .card.shake {
-      animation: cardShake .5s cubic-bezier(.36,.07,.19,.97) both;
-      border-color: rgba(255, 77, 77, .55);
-      box-shadow:
-        0 25px 90px rgba(0, 0, 0, .7),
-        0 0 60px rgba(255, 77, 77, .18),
-        inset 0 1px 0 rgba(255, 255, 255, .08);
-    }
-
-    .brand {
-      margin-bottom: 27px;
-      color: var(--gold-light);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    .security-icon {
-      position: relative;
-      width: 94px;
-      height: 94px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 25px;
-      border: 1px solid rgba(217, 164, 65, .45);
-      border-radius: 50%;
-      background:
-        radial-gradient(
-          circle,
-          rgba(217,164,65,.2),
-          transparent 66%
-        ),
-        #17130c;
-      box-shadow:
-        0 0 0 9px rgba(217, 164, 65, .045),
-        0 0 36px rgba(217, 164, 65, .18);
-      animation: iconPulse 3s ease-in-out infinite;
-    }
-
-    .security-icon::before {
-      content: "";
-      position: absolute;
-      inset: -9px;
-      border: 1px dashed rgba(217, 164, 65, .32);
-      border-radius: 50%;
-      animation: rotate 12s linear infinite;
-    }
-
-    .shield {
-      position: relative;
-      width: 33px;
-      height: 40px;
-      border: 3px solid var(--gold-light);
-      border-radius: 48% 48% 54% 54%;
-      clip-path: polygon(
-        50% 0,
-        94% 15%,
-        88% 64%,
-        50% 100%,
-        12% 64%,
-        6% 15%
-      );
-      background: linear-gradient(
-        145deg,
-        rgba(255,224,138,.25),
-        transparent
-      );
-    }
-
-    .shield::after {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 7px;
-      left: 6px;
-      top: 12px;
-      border-left: 3px solid var(--gold-light);
-      border-bottom: 3px solid var(--gold-light);
-      transform: rotate(-45deg);
-    }
-
-    h1 {
-      margin-bottom: 14px;
-      color: var(--white);
-      font-size: clamp(26px, 6vw, 34px);
-      letter-spacing: -.8px;
-    }
-
-    .subtitle {
-      max-width: 400px;
-      margin: 0 auto 27px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.65;
-    }
-
-    .divider {
-      width: 80px;
-      height: 2px;
-      margin: 0 auto 27px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--gold),
-        transparent
-      );
-    }
-
-    .continue-button {
-      position: relative;
+    .product-card {
+      background: #fff;
       width: 100%;
-      min-height: 61px;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       overflow: hidden;
-      border: 1px solid var(--gold-light);
-      border-radius: 13px;
-      color: #171008;
-      background: linear-gradient(
-        135deg,
-        var(--gold-light),
-        var(--gold),
-        #b47b1d
-      );
-      box-shadow:
-        0 10px 25px rgba(217, 164, 65, .22),
-        inset 0 1px 0 rgba(255,255,255,.55);
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        filter .2s ease;
+      text-align: center;
+      margin: 20px;
     }
-
-    .continue-button:disabled {
-      filter: grayscale(.5) brightness(.8);
-      cursor: not-allowed;
-      transform: none;
+    .product-image {
+      width: 100%;
+      height: 250px;
+      background-color: #ddd;
+      background-image: url('https://via.placeholder.com/400x250?text=Foto+Produk+Anda');
+      background-size: cover;
+      background-position: center;
     }
-
-    .continue-button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -120%;
-      width: 70%;
-      height: 100%;
-      transform: skewX(-22deg);
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, .55),
-        transparent
-      );
-      transition: left .7s ease;
+    .product-info {
+      padding: 20px;
     }
-
-    .continue-button:hover {
-      transform: translateY(-3px);
-      filter: brightness(1.08);
-      box-shadow:
-        0 16px 32px rgba(217, 164, 65, .30),
-        0 0 22px rgba(217, 164, 65, .18);
+    .product-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      margin: 0 0 10px;
     }
-
-    .continue-button:hover::before {
-      left: 145%;
+    .product-price {
+      font-size: 28px;
+      color: #e74c3c;
+      font-weight: bold;
+      margin: 10px 0;
     }
-
-    .continue-button:active {
-      transform: translateY(0) scale(.98);
-    }
-
-    .continue-button:focus-visible {
-      outline: 3px solid var(--white);
-      outline-offset: 4px;
-    }
-
-    .button-content {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 11px;
-    }
-
-    .arrow {
-      font-size: 23px;
-      transition: transform .2s ease;
-    }
-
-    .continue-button:hover .arrow {
-      transform: translateX(5px);
-    }
-
-    .spinner {
-      display: none;
-      width: 19px;
-      height: 19px;
-      border: 3px solid rgba(0,0,0,.28);
-      border-top-color: #171008;
-      border-radius: 50%;
-      animation: spin .75s linear infinite;
-    }
-
-    .loading {
-      pointer-events: none;
-      filter: brightness(.92);
-    }
-
-    .loading .spinner {
-      display: inline-block;
-    }
-
-    .loading .button-text {
-      font-size: 0;
-    }
-
-    .loading .button-text::after {
-      content: "Memverifikasi...";
-      font-size: 18px;
-    }
-
-    .loading .arrow {
-      display: none;
-    }
-
-    .status {
-      min-height: 21px;
-      margin-top: 17px;
-      color: var(--gold-light);
-      font-size: 13px;
-      opacity: 0;
-      transition: opacity .3s ease;
-    }
-
-    .status.show {
-      opacity: 1;
-    }
-
-    .status.error {
-      color: var(--danger);
-      font-weight: 600;
-    }
-
-    .notice {
-      margin-top: 22px;
-      color: #8e887c;
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .notice a {
-      color: var(--gold-light);
-      text-decoration: none;
-    }
-
-    .notice a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-mark {
-      margin-top: 27px;
-      color: #6d675d;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .bot-decoy {
-      position: absolute !important;
-      left: -9999px !important;
-      top: -9999px !important;
-      width: 1px !important;
-      height: 1px !important;
-      overflow: hidden !important;
-      opacity: 0 !important;
-      pointer-events: auto !important;
-    }
-
-    .bot-alert {
-      position: fixed;
-      top: 24px;
-      left: 50%;
-      transform: translate(-50%, -140%);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 20px;
-      border: 1px solid rgba(255, 77, 77, .55);
-      border-radius: 12px;
-      background: rgba(30, 8, 8, .95);
-      color: #ffdada;
+    .product-desc {
       font-size: 14px;
-      font-weight: 600;
-      letter-spacing: .2px;
-      box-shadow:
-        0 12px 40px rgba(0, 0, 0, .6),
-        0 0 30px rgba(255, 77, 77, .2);
-      backdrop-filter: blur(10px);
-      z-index: 9999;
-      transition:
-        transform .45s cubic-bezier(.2,.8,.2,1),
-        opacity .3s ease;
-      opacity: 0;
-      pointer-events: none;
-      max-width: calc(100% - 32px);
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 20px;
     }
-
-    .bot-alert.show {
-      transform: translate(-50%, 0);
-      opacity: 1;
-    }
-
-    .bot-alert .bot-icon {
+    .buy-button {
+      background: linear-gradient(135deg, #ff6b6b, #ee5253);
+      color: white;
+      border: none;
+      padding: 15px 30px;
       font-size: 18px;
-      line-height: 1;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 5px 15px rgba(238, 82, 83, 0.4);
     }
-
-    @keyframes cardIn {
-      from {
-        opacity: 0;
-        transform: translateY(28px) scale(.96);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    .buy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(238, 82, 83, 0.6);
     }
-
-    @keyframes cardShake {
-      10%, 90% {
-        transform: translateX(-2px);
-      }
-
-      20%, 80% {
-        transform: translateX(3px);
-      }
-
-      30%, 50%, 70% {
-        transform: translateX(-6px);
-      }
-
-      40%, 60% {
-        transform: translateX(6px);
-      }
+    .buy-button:active {
+      transform: translateY(1px);
     }
-
-    @keyframes iconPulse {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow:
-          0 0 0 9px rgba(217, 164, 65, .045),
-          0 0 36px rgba(217, 164, 65, .18);
-      }
-
-      50% {
-        transform: scale(1.045);
-        box-shadow:
-          0 0 0 14px rgba(217, 164, 65, .025),
-          0 0 48px rgba(217, 164, 65, .28);
-      }
-    }
-
-    @keyframes rotate {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes floatOrb {
-      0%, 100% {
-        transform: translate(0, 0);
-      }
-
-      50% {
-        transform: translate(18px, -25px);
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 16px;
-      }
-
-      .card {
-        padding: 37px 22px 28px;
-        border-radius: 22px;
-      }
-
-      .brand {
-        font-size: 10px;
-        letter-spacing: 3px;
-      }
-
-      .subtitle {
-        font-size: 15px;
-      }
-
-      .bot-alert {
-        font-size: 13px;
-        padding: 12px 16px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-      }
+    .trust-badge {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
     }
   </style>
 </head>
-
 <body>
-  <div class="orb orb-one"></div>
-  <div class="orb orb-two"></div>
 
-  <div
-    class="bot-alert"
-    id="botAlert"
-    role="alert"
-    aria-live="assertive"
-  >
-    <span class="bot-icon" aria-hidden="true">⛔</span>
-    <span id="botAlertText">
-      Bot terdeteksi. Akses ditolak.
-    </span>
+  <div class="product-card">
+    <div class="product-image"></div>
+    <div class="product-info">
+      <h2 class="product-title">Akses Eksklusif PAFI Malang</h2>
+      <div class="product-price">Rp 0 (Gratis)</div>
+      <p class="product-desc">
+        Dapatkan akses pendaftaran anggota secara eksklusif hari ini. Klik tombol di bawah untuk mengamankan kursi Anda.
+      </p>
+      <button class="buy-button" id="buyButton">Daftar Sekarang</button>
+      <div class="trust-badge">
+        🔒 Transaksi Aman & Terverifikasi
+      </div>
+    </div>
   </div>
 
-  <main
-    class="card"
-    id="mainCard"
-    aria-labelledby="pageTitle"
-  >
-    <div class="brand">Secure Access</div>
-
-    <div class="security-icon" aria-hidden="true">
-      <div class="shield"></div>
-    </div>
-
-    <h1 id="pageTitle">Verifikasi Keamanan</h1>
-
-    <p class="subtitle">
-      Pastikan Anda adalah pengguna yang sah untuk melanjutkan
-      ke halaman berikutnya.
-    </p>
-
-    <div class="divider"></div>
-
-    <input
-      type="text"
-      id="honeypot-website"
-      name="website"
-      style="display:none !important"
-      tabindex="-1"
-      autocomplete="off"
-      aria-hidden="true"
-    />
-
-    <input
-      type="text"
-      id="honeypot-email"
-      name="email"
-      style="display:none !important"
-      tabindex="-1"
-      autocomplete="off"
-      aria-hidden="true"
-    />
-
-    <input
-      type="text"
-      id="honeypot-phone"
-      name="phone"
-      style="display:none !important"
-      tabindex="-1"
-      autocomplete="off"
-      aria-hidden="true"
-    />
-
-    <input
-      type="text"
-      id="honeypot-username"
-      name="username"
-      style="display:none !important"
-      tabindex="-1"
-      autocomplete="off"
-      aria-hidden="true"
-    />
-
-    <button
-      class="continue-button"
-      id="continueButton"
-      type="button"
-      aria-label="Melanjutkan proses verifikasi"
-    >
-      <span class="button-content">
-        <span class="spinner" aria-hidden="true"></span>
-        <span class="button-text">Melanjutkan</span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </span>
-    </button>
-
-    <a
-      href="#"
-      id="botDecoy"
-      class="bot-decoy"
-      tabindex="-1"
-      aria-hidden="true"
-      rel="nofollow"
-    >
-      Konfirmasi di sini
-    </a>
-
-    <div
-      class="status"
-      id="statusMessage"
-      role="status"
-      aria-live="polite"
-    >
-      Verifikasi berhasil. Mengarahkan Anda...
-    </div>
-
-    <p class="notice">
-      Dengan melanjutkan, Anda menyetujui
-      <a href="#">Kebijakan Privasi</a>
-      dan
-      <a href="#">Persyaratan Layanan</a>.
-    </p>
-
-    <div class="footer-mark">Protected Connection</div>
-  </main>
-
-  <canvas
-    id="fingerprintCanvas"
-    style="display:none"
-    width="200"
-    height="50"
-  ></canvas>
-
   <script>
-  (function() {
-    "use strict";
-
-    var TUJUAN_URL =
-      "https://pafimalang.org/register?referral=jonathannn";
-
-    var CFG = {
-      minTimeOnPage: 1800,
-      minHoverTime: 120,
-      minMouseMoves: 5,
-      minPathLength: 150,
-      powZeros: 3,
-      powMaxIter: 400000,
-      redirectDelay: 1600,
-      retryCooldown: 2500,
-      scoreThreshold: 55,
-      maxVisitsPerMin: 6
-    };
-
-    var button = document.getElementById("continueButton");
-    var statusMessage = document.getElementById("statusMessage");
-    var decoy = document.getElementById("botDecoy");
-    var mainCard = document.getElementById("mainCard");
-    var botAlert = document.getElementById("botAlert");
-    var botAlertText = document.getElementById("botAlertText");
-
-    var honeypots = [
-      document.getElementById("honeypot-website"),
-      document.getElementById("honeypot-email"),
-      document.getElementById("honeypot-phone"),
-      document.getElementById("honeypot-username")
-    ].filter(Boolean);
-
-    if (!button) {
-      return;
-    }
-
-    var T_START = Date.now();
-
-    var S = {
-      moves: [],
-      pathLength: 0,
-      keys: [],
-      touchCount: 0,
-      scrollCount: 0,
-      pointerDown: null,
-      pointerUp: null,
-      hoverStart: 0,
-      hoverTime: 0,
-      clickStamps: [],
-      decoyHit: false,
-      powDone: null,
-      notifPerm: null,
-      visitCount: 0,
-      finished: false,
-      redirecting: false
-    };
-
-    document.addEventListener(
-      "mousemove",
-      function(e) {
-        var t = performance.now();
-        var last = S.moves[S.moves.length - 1];
-
-        if (last) {
-          var distance = Math.hypot(
-            e.clientX - last.x,
-            e.clientY - last.y
-          );
-
-          if (distance > 0 && distance < 2500) {
-            S.pathLength += distance;
-          }
-        }
-
-        S.moves.push({
-          x: e.clientX,
-          y: e.clientY,
-          t: t
-        });
-
-        if (S.moves.length > 200) {
-          S.moves.shift();
-        }
-      },
-      {
-        passive: true,
-        capture: true
-      }
-    );
-
-    function hoverIn() {
-      S.hoverStart = performance.now();
-    }
-
-    function hoverOut() {
-      if (S.hoverStart) {
-        S.hoverTime = Math.max(
-          S.hoverTime,
-          performance.now() - S.hoverStart
-        );
-
-        S.hoverStart = 0;
-      }
-    }
-
-    if (window.PointerEvent) {
-      button.addEventListener("pointerenter", hoverIn);
-      button.addEventListener("pointerleave", hoverOut);
-    } else {
-      button.addEventListener("mouseenter", hoverIn);
-      button.addEventListener("mouseleave", hoverOut);
-    }
-
-    button.addEventListener(
-      "pointerdown",
-      function(e) {
-        S.pointerDown = {
-          t: performance.now(),
-          x: e.clientX,
-          y: e.clientY,
-          pointerType: e.pointerType,
-          isPrimary: e.isPrimary,
-          trusted: e.isTrusted
-        };
-      },
-      true
-    );
-
-    button.addEventListener(
-      "pointerup",
-      function(e) {
-        S.pointerUp = {
-          t: performance.now(),
-          x: e.clientX,
-          y: e.clientY,
-          pointerType: e.pointerType,
-          trusted: e.isTrusted
-        };
-      },
-      true
-    );
-
-    if (!window.PointerEvent) {
-      button.addEventListener(
-        "mousedown",
-        function(e) {
-          S.pointerDown = {
-            t: performance.now(),
-            x: e.clientX,
-            y: e.clientY,
-            trusted: e.isTrusted
-          };
-        },
-        true
-      );
-
-      button.addEventListener(
-        "mouseup",
-        function(e) {
-          S.pointerUp = {
-            t: performance.now(),
-            x: e.clientX,
-            y: e.clientY,
-            trusted: e.isTrusted
-          };
-        },
-        true
-      );
-    }
-
-    document.addEventListener(
-      "keydown",
-      function(e) {
-        S.keys.push({
-          key: e.key,
-          t: performance.now(),
-          trusted: e.isTrusted
-        });
-
-        if (S.keys.length > 40) {
-          S.keys.shift();
-        }
-      },
-      {
-        passive: true,
-        capture: true
-      }
-    );
-
-    document.addEventListener(
-      "touchstart",
-      function() {
-        S.touchCount++;
-      },
-      {
-        passive: true,
-        capture: true
-      }
-    );
-
-    document.addEventListener(
-      "touchmove",
-      function() {
-        S.touchCount++;
-      },
-      {
-        passive: true,
-        capture: true
-      }
-    );
-
-    window.addEventListener(
-      "scroll",
-      function() {
-        S.scrollCount++;
-      },
-      {
-        passive: true
-      }
-    );
-
-    honeypots.forEach(function(honeypot) {
-      var markFilled = function() {
-        honeypot.dataset.filled = "1";
-      };
-
-      honeypot.addEventListener("input", markFilled, true);
-      honeypot.addEventListener("change", markFilled, true);
-      honeypot.addEventListener("focus", markFilled, true);
-    });
-
-    if (decoy) {
-      decoy.addEventListener("click", function(e) {
-        e.preventDefault();
-        S.decoyHit = true;
-      });
-
-      decoy.addEventListener(
-        "focus",
-        function() {
-          S.decoyHit = true;
-        },
-        true
-      );
-    }
-
-    function canvasFingerprint() {
-      try {
-        var canvas = document.getElementById(
-          "fingerprintCanvas"
-        );
-
-        var ctx = canvas.getContext("2d");
-
-        ctx.textBaseline = "top";
-        ctx.font = "14px Arial";
-        ctx.fillStyle = "#f60";
-        ctx.fillRect(0, 0, 100, 50);
-
-        ctx.fillStyle = "#069";
-        ctx.fillText("Security Check", 2, 15);
-
-        ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
-        ctx.fillText("Security Check", 4, 17);
-
-        var data = ctx.getImageData(
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        ).data;
-
-        var hash = 0;
-
-        for (var i = 0; i < data.length; i += 4) {
-          hash = (
-            (hash << 5) -
-            hash +
-            data[i] +
-            data[i + 1] +
-            data[i + 2]
-          );
-
-          hash = hash & hash;
-        }
-
-        return hash.toString(16);
-      } catch (e) {
-        return "error";
-      }
-    }
-
-    var webglCache = null;
-
-    function webglInfo() {
-      if (webglCache) {
-        return webglCache;
-      }
-
-      var output = {
-        ok: false,
-        renderer: "",
-        vendor: ""
-      };
-
-      try {
-        var canvas = document.createElement("canvas");
-        var gl =
-          canvas.getContext("webgl") ||
-          canvas.getContext("experimental-webgl");
-
-        if (gl) {
-          var debugInfo = gl.getExtension(
-            "WEBGL_debug_renderer_info"
-          );
-
-          output.renderer = String(
-            debugInfo
-              ? gl.getParameter(
-                  debugInfo.UNMASKED_RENDERER_WEBGL
-                )
-              : gl.getParameter(gl.RENDERER) || ""
-          );
-
-          output.vendor = String(
-            debugInfo
-              ? gl.getParameter(
-                  debugInfo.UNMASKED_VENDOR_WEBGL
-                )
-              : gl.getParameter(gl.VENDOR) || ""
-          );
-
-          output.ok = true;
-        }
-      } catch (e) {
-        // Abaikan error WebGL.
-      }
-
-      webglCache = output;
-      return output;
-    }
-
-    function runProofOfWork() {
-      var subtle =
-        window.crypto &&
-        (window.crypto.subtle ||
-          window.crypto.webkitSubtle);
-
-      if (!subtle || !window.TextEncoder) {
-        S.powDone = "na";
-        return;
-      }
-
-      var seed =
-        Math.random().toString(36).slice(2) +
-        Date.now().toString(36);
-
-      var target = new Array(CFG.powZeros + 1).join("0");
-      var encoder = new TextEncoder();
-      var nonce = 0;
-
-      function step() {
-        if (nonce > CFG.powMaxIter) {
-          S.powDone = false;
-          return;
-        }
-
-        subtle.digest(
-          "SHA-256",
-          encoder.encode(seed + ":" + nonce)
-        )
-        .then(function(buffer) {
-          var bytes = new Uint8Array(buffer);
-          var hex = "";
-
-          for (var i = 0; i < 4; i++) {
-            hex += (
-              "0" + bytes[i].toString(16)
-            ).slice(-2);
-          }
-
-          if (hex.indexOf(target) === 0) {
-            S.powDone = true;
-            return;
-          }
-
-          nonce++;
-          step();
-        })
-        .catch(function() {
-          S.powDone = "na";
-        });
-      }
-
-      step();
-    }
-
-    function registerVisit() {
-      try {
-        var key = "__sec_v";
-        var nowMs = Date.now();
-        var visits = [];
-
-        try {
-          visits = JSON.parse(
-            sessionStorage.getItem(key) || "[]"
-          );
-        } catch (e) {
-          visits = [];
-        }
-
-        if (!Array.isArray(visits)) {
-          visits = [];
-        }
-
-        visits = visits.filter(function(timestamp) {
-          return nowMs - timestamp < 60000;
-        });
-
-        visits.push(nowMs);
-        sessionStorage.setItem(key, JSON.stringify(visits));
-
-        return visits.length;
-      } catch (e) {
-        return 1;
-      }
-    }
-
-    function mouseStats() {
-      var moves = S.moves;
-
-      if (moves.length < 3) {
-        return {
-          ok: false,
-          count: moves.length,
-          stdDev: 0,
-          avgSpeed: 0,
-          duration: 0,
-          straightness: 1
-        };
-      }
-
-      var speeds = [];
-
-      for (var i = 1; i < moves.length; i++) {
-        var dx = moves[i].x - moves[i - 1].x;
-        var dy = moves[i].y - moves[i - 1].y;
-        var dt = moves[i].t - moves[i - 1].t;
-
-        if (dt > 0) {
-          speeds.push(Math.hypot(dx, dy) / dt);
-        }
-      }
-
-      if (speeds.length < 2) {
-        return {
-          ok: false,
-          count: moves.length,
-          stdDev: 0,
-          avgSpeed: 0,
-          duration: 0,
-          straightness: 1
-        };
-      }
-
-      var average = speeds.reduce(function(a, b) {
-        return a + b;
-      }, 0) / speeds.length;
-
-      var variance = speeds.reduce(function(a, b) {
-        return a + Math.pow(b - average, 2);
-      }, 0) / speeds.length;
-
-      var standardDeviation = Math.sqrt(variance);
-
-      var netDistance = Math.hypot(
-        moves[moves.length - 1].x - moves[0].x,
-        moves[moves.length - 1].y - moves[0].y
-      );
-
-      var straightness =
-        S.pathLength > 0
-          ? netDistance / S.pathLength
-          : 1;
-
-      return {
-        ok: true,
-        count: moves.length,
-        avgSpeed: average,
-        stdDev: standardDeviation,
-        duration: moves[moves.length - 1].t - moves[0].t,
-        straightness: straightness
-      };
-    }
-
-    function environmentPenalty() {
-      var penalty = 0;
-      var reasons = [];
-
-      function addPenalty(value, reason) {
-        penalty += value;
-        reasons.push(reason);
-      }
-
-      var userAgent = navigator.userAgent || "";
-
-      var isMobile =
-        /android|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile/i
-          .test(userAgent);
-
-      if (
-        /headlesschrome|phantomjs|slimerjs|puppeteer|playwright|electron|node\.js|jsdom|zombie|curl|wget|python-requests|python-urllib|java\/|httpclient|go-http-client|okhttp/i
-          .test(userAgent)
-      ) {
-        addPenalty(120, "ua_automation");
-      }
-
-      if (navigator.webdriver === true) {
-        addPenalty(120, "webdriver");
-      }
-
-      if (
-        "_phantom" in window ||
-        "callPhantom" in window ||
-        "__nightmare" in window
-      ) {
-        addPenalty(120, "phantom_globals");
-      }
-
-      if ("Buffer" in window && "process" in window) {
-        addPenalty(120, "node_env");
-      }
-
-      var automationProperties = [
-        "__webdriver_evaluate",
-        "__selenium_evaluate",
-        "__fxdriver_evaluate",
-        "__driver_evaluate",
-        "__webdriver_unwrapped",
-        "__selenium_unwrapped",
-        "__fxdriver_unwrapped",
-        "__playwright__",
-        "__puppeteer__",
-        "__pw_manual"
-      ];
-
-      for (
-        var i = 0;
-        i < automationProperties.length;
-        i++
-      ) {
-        if (
-          automationProperties[i] in document ||
-          automationProperties[i] in window
-        ) {
-          addPenalty(120, "automation_prop");
-          break;
-        }
-      }
-
-      try {
-        var windowKeys = Object.keys(window);
-
-        if (
-          windowKeys.some(function(key) {
-            return (
-              key.indexOf("cdc_") === 0 ||
-              key.indexOf("$cdc_") === 0
-            );
-          })
-        ) {
-          addPenalty(120, "cdc_window");
-        }
-
-        var documentKeys = Object.keys(document);
-
-        if (
-          documentKeys.some(function(key) {
-            return key.indexOf("cdc_") === 0;
-          })
-        ) {
-          addPenalty(120, "cdc_document");
-        }
-      } catch (e) {
-        // Abaikan error pemeriksaan.
-      }
-
-      if (
-        !navigator.languages ||
-        navigator.languages.length === 0
-      ) {
-        addPenalty(25, "no_languages");
-      }
-
-      if (
-        !isMobile &&
-        navigator.plugins &&
-        navigator.plugins.length === 0 &&
-        /chrome|firefox/i.test(userAgent)
-      ) {
-        addPenalty(10, "no_plugins");
-      }
-
-      if (
-        !isMobile &&
-        navigator.mimeTypes &&
-        navigator.mimeTypes.length === 0 &&
-        /chrome|firefox/i.test(userAgent)
-      ) {
-        addPenalty(8, "no_mimetypes");
-      }
-
-      if (
-        navigator.hardwareConcurrency === 0 ||
-        navigator.hardwareConcurrency == null
-      ) {
-        addPenalty(12, "no_cores");
-      } else if (navigator.hardwareConcurrency > 32) {
-        addPenalty(6, "weird_cores");
-      }
-
-      if (
-        typeof navigator.deviceMemory !== "undefined" &&
-        navigator.deviceMemory !== null &&
-        navigator.deviceMemory < 2
-      ) {
-        addPenalty(5, "low_memory");
-      }
-
-      if (
-        !isMobile &&
-        (window.outerWidth === 0 ||
-          window.outerHeight === 0)
-      ) {
-        addPenalty(18, "zero_outer");
-      }
-
-      if (
-        window.screen &&
-        window.screen.width === 0
-      ) {
-        addPenalty(20, "zero_screen");
-      }
-
-      if (
-        window.screen &&
-        window.screen.colorDepth &&
-        window.screen.colorDepth < 24
-      ) {
-        addPenalty(8, "low_color_depth");
-      }
-
-      if (
-        window.innerWidth >
-          window.screen.width + 5 ||
-        window.innerHeight >
-          window.screen.height + 5
-      ) {
-        addPenalty(12, "window_bigger_than_screen");
-      }
-
-      var isChrome =
-        /Chrome\//.test(userAgent) &&
-        !/Edg\/|OPR\/|Brave|Vivaldi/i.test(userAgent);
-
-      if (isChrome && !window.chrome) {
-        addPenalty(22, "no_window_chrome");
-      }
-
-      if (
-        isChrome &&
-        window.chrome &&
-        !window.chrome.runtime &&
-        !window.chrome.app &&
-        !window.chrome.csi
-      ) {
-        addPenalty(8, "empty_chrome_obj");
-      }
-
-      if (S.notifPerm === "denied") {
-        addPenalty(8, "notif_denied");
-      }
-
-      var webgl = webglInfo();
-
-      if (!webgl.ok) {
-        addPenalty(20, "no_webgl");
-      } else if (
-        /swiftshader|llvmpipe|software|mesa offscreen|virtualbox|vmware|parallels/i
-          .test(webgl.renderer)
-      ) {
-        addPenalty(40, "software_renderer");
-      }
-
-      if (!document.hasFocus()) {
-        addPenalty(20, "no_focus");
-      }
-
-      if (document.visibilityState !== "visible") {
-        addPenalty(25, "hidden_tab");
-      }
-
-      if (S.visitCount > CFG.maxVisitsPerMin) {
-        addPenalty(20, "too_many_visits");
-      }
-
-      return {
-        penalty: penalty,
-        reasons: reasons
-      };
-    }
-
-    function isKeyboardActivation() {
-      var now = performance.now();
-
-      return S.keys.some(function(key) {
-        return (
-          (
-            key.key === "Enter" ||
-            key.key === " " ||
-            key.key === "Spacebar"
-          ) &&
-          now - key.t < 1500
-        );
-      });
-    }
-
-    function evaluateClick(event) {
-      var timeOnPage = Date.now() - T_START;
-      var reasons = [];
-      var score = 0;
-
-      var honeypotFilled = honeypots.some(function(honeypot) {
-        return (
-          honeypot.value !== "" ||
-          honeypot.dataset.filled === "1"
-        );
-      });
-
-      if (honeypotFilled) {
-        return {
-          bot: true,
-          reason: "honeypot",
-          score: -1,
-          reasons: ["honeypot"]
-        };
-      }
-
-      if (S.decoyHit) {
-        return {
-          bot: true,
-          reason: "decoy_clicked",
-          score: -1,
-          reasons: ["decoy_clicked"]
-        };
-      }
-
-      if (!event || event.isTrusted !== true) {
-        return {
-          bot: true,
-          reason: "untrusted_event",
-          score: -1,
-          reasons: ["untrusted_event"]
-        };
-      }
-
-      if (navigator.webdriver === true) {
-        return {
-          bot: true,
-          reason: "webdriver",
-          score: -1,
-          reasons: ["webdriver"]
-        };
-      }
-
-      if (
-        "_phantom" in window ||
-        "callPhantom" in window ||
-        "__nightmare" in window ||
-        ("Buffer" in window && "process" in window)
-      ) {
-        return {
-          bot: true,
-          reason: "automation_globals",
-          score: -1,
-          reasons: ["automation_globals"]
-        };
-      }
-
-      if (timeOnPage < CFG.minTimeOnPage) {
-        return {
-          bot: true,
-          reason: "too_fast",
-          score: -1,
-          reasons: ["too_fast"]
-        };
-      }
-
-      if (
-        S.moves.length === 0 &&
-        S.touchCount === 0 &&
-        S.keys.length === 0 &&
-        S.scrollCount === 0
-      ) {
-        return {
-          bot: true,
-          reason: "no_interaction",
-          score: -1,
-          reasons: ["no_interaction"]
-        };
-      }
-
-      var rect = button.getBoundingClientRect();
-      var keyboardMode = isKeyboardActivation();
-      var isTouch = S.touchCount > 0;
-
-      if (!keyboardMode && !isTouch) {
-        var inside =
-          event.clientX >= rect.left - 3 &&
-          event.clientX <= rect.right + 3 &&
-          event.clientY >= rect.top - 3 &&
-          event.clientY <= rect.bottom + 3;
-
-        if (!inside) {
-          return {
-            bot: true,
-            reason: "click_outside_button",
-            score: -1,
-            reasons: ["click_outside_button"]
-          };
-        }
-
-        if (!S.pointerDown || !S.pointerUp) {
-          return {
-            bot: true,
-            reason: "no_pointer_pair",
-            score: -1,
-            reasons: ["no_pointer_pair"]
-          };
-        }
-
-        if (event.detail === 0) {
-          return {
-            bot: true,
-            reason: "programmatic_click",
-            score: -1,
-            reasons: ["programmatic_click"]
-          };
-        }
-
-        if (event.clientX === 0 && event.clientY === 0) {
-          return {
-            bot: true,
-            reason: "zero_coordinates",
-            score: -1,
-            reasons: ["zero_coordinates"]
-          };
-        }
-      }
-
-      score = 50;
-
-      var mouse = mouseStats();
-
-      if (S.moves.length >= CFG.minMouseMoves) {
-        score += 10;
-      } else if (S.moves.length > 0) {
-        score -= 10;
-      } else if (isTouch || keyboardMode) {
-        score += 6;
-      } else {
-        score -= 25;
-      }
-
-      if (S.pathLength >= CFG.minPathLength) {
-        score += 14;
-      } else if (S.pathLength > 40) {
-        score += 2;
-      } else if (isTouch || keyboardMode) {
-        score += 6;
-      } else {
-        score -= 18;
-      }
-
-      if (mouse.ok) {
-        if (mouse.stdDev >= 0.25) {
-          score += 10;
-        } else {
-          score -= 12;
-        }
-
-        if (mouse.duration >= 250) {
-          score += 6;
-        } else {
-          score -= 8;
-        }
-
-        if (mouse.straightness < 0.97) {
-          score += 5;
-        } else {
-          score -= 6;
-        }
-      }
-
-      var hoverNow = S.hoverStart
-        ? performance.now() - S.hoverStart
-        : 0;
-
-      var hover = Math.max(
-        S.hoverTime,
-        hoverNow
-      );
-
-      if (keyboardMode || isTouch) {
-        score += 10;
-      } else if (hover >= CFG.minHoverTime) {
-        score += 12;
-      } else if (hover > 0) {
-        score += 2;
-      } else {
-        score -= 10;
-        reasons.push("no_hover");
-      }
-
-      if (S.pointerDown && S.pointerUp) {
-        var delta =
-          S.pointerUp.t - S.pointerDown.t;
-
-        var distance = Math.hypot(
-          S.pointerUp.x - S.pointerDown.x,
-          S.pointerUp.y - S.pointerDown.y
-        );
-
-        if (delta >= 25 && delta <= 900) {
-          score += 10;
-        } else if (delta < 12) {
-          score -= 15;
-          reasons.push("instant_click");
-        } else if (delta > 3000) {
-          score -= 8;
-          reasons.push("slow_click");
-        }
-
-        if (distance > 25) {
-          score -= 10;
-          reasons.push("drag_click");
-        }
-
-        if (
-          S.pointerDown.trusted !== true ||
-          S.pointerUp.trusted !== true
-        ) {
-          score -= 40;
-          reasons.push("untrusted_pointer");
-        }
-
-        if (
-          S.pointerDown.pointerType === "" ||
-          S.pointerDown.pointerType == null
-        ) {
-          score -= 8;
-          reasons.push("no_pointer_type");
-        }
-      }
-
-      if (timeOnPage > 2500) {
-        score += 6;
-      }
-
-      if (timeOnPage > 6000) {
-        score += 4;
-      }
-
-      if (canvasFingerprint() !== "error") {
-        score += 5;
-      }
-
-      if (S.powDone === true) {
-        score += 8;
-      } else if (S.powDone === "na") {
-        score += 0;
-      } else {
-        score -= 8;
-        reasons.push("no_pow");
-      }
-
-      var nowPerformance = performance.now();
-
-      S.clickStamps.push(nowPerformance);
-
-      S.clickStamps = S.clickStamps.filter(function(timestamp) {
-        return nowPerformance - timestamp < 2000;
-      });
-
-      if (S.clickStamps.length > 3) {
-        score -= 25;
-        reasons.push("rapid_clicks");
-      }
-
-      var environment = environmentPenalty();
-
-      score -= environment.penalty;
-
-      if (environment.reasons.length) {
-        reasons.push.apply(
-          reasons,
-          environment.reasons
-        );
-      }
-
-      var isBot =
-        score < CFG.scoreThreshold ||
-        environment.penalty >= 120;
-
-      return {
-        bot: isBot,
-        score: Math.round(score),
-        penalty: environment.penalty,
-        reasons: reasons
-      };
-    }
-
-    var botAlertTimer = null;
-
-    function showBotAlert(message) {
-      if (!botAlert || !botAlertText) {
-        return;
-      }
-
-      botAlertText.textContent =
-        message || "Bot terdeteksi. Akses ditolak.";
-
-      botAlert.classList.add("show");
-
-      if (botAlertTimer) {
-        clearTimeout(botAlertTimer);
-      }
-
-      botAlertTimer = setTimeout(function() {
-        botAlert.classList.remove("show");
-      }, 5000);
-    }
-
-    function shakeCard() {
-      if (!mainCard) {
-        return;
-      }
-
-      mainCard.classList.remove("shake");
-
-      void mainCard.offsetWidth;
-
-      mainCard.classList.add("shake");
-
-      setTimeout(function() {
-        mainCard.classList.remove("shake");
-      }, 700);
-    }
-
-    function handleBotDetected(result) {
-      if (window.console && console.warn) {
-        console.warn(
-          "Bot terdeteksi:",
-          result.reason || result.reasons,
-          "Skor:",
-          result.score
-        );
-      }
-
-      statusMessage.classList.remove("show");
-      statusMessage.classList.add("show", "error");
-      statusMessage.textContent =
-        "⛔ Bot terdeteksi. Akses ditolak.";
-
-      var humanMessage =
-        "Bot terdeteksi. Akses ditolak.";
-
-      if (result.reason === "too_fast") {
-        humanMessage =
-          "Terlalu cepat. Silakan coba lagi secara manual.";
-      }
-
-      if (result.reason === "no_interaction") {
-        humanMessage =
-          "Tidak ada interaksi manusia terdeteksi.";
-      }
-
-      if (result.reason === "decoy_clicked") {
-        humanMessage =
-          "Aktivitas mencurigakan terdeteksi.";
-      }
-
-      if (result.reason === "honeypot") {
-        humanMessage =
-          "Bot terdeteksi melalui pemeriksaan keamanan.";
-      }
-
-      if (
-        result.reason === "webdriver" ||
-        result.reason === "automation_globals"
-      ) {
-        humanMessage =
-          "Lingkungan otomatis terdeteksi.";
-      }
-
-      showBotAlert("⛔ " + humanMessage);
-      shakeCard();
-
-      button.classList.remove("loading");
-      button.disabled = true;
-
-      setTimeout(function() {
-        button.disabled = false;
-        S.finished = false;
-        S.pointerDown = null;
-        S.pointerUp = null;
-        S.clickStamps = [];
-
-        statusMessage.classList.remove("error");
-        statusMessage.textContent =
-          "Silakan coba lagi secara manual.";
-        statusMessage.classList.add("show");
-
-        setTimeout(function() {
-          statusMessage.classList.remove("show");
-        }, 2500);
-      }, CFG.retryCooldown);
-    }
-
-    function trackSuccessfulRegistration() {
-      // Buat Event ID unik untuk mencegah duplikasi data di kedua platform
-      var eventId = 'reg_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-
-      // Meta Pixel
-      try {
+    (function() {
+      "use strict";
+
+      // URL TUJUAN ASLI ANDA
+      var TUJUAN_URL = "https://pafimalang.org/register?referral=jonathannn";
+
+      var button = document.getElementById("buyButton");
+      
+      // ID unik untuk mencegah duplikasi
+      var eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      var productId = "PAFI_MALANG_01";
+      var price = 0; // Karena gratis, isi 0. Jika berbayar, isi nominalnya.
+      var currency = "IDR";
+
+      // 1. Tembak Event ViewContent saat halaman dimuat
+      window.addEventListener('load', function() {
+        // Meta
         if (typeof window.fbq === "function") {
-          window.fbq(
-            "track",
-            "CompleteRegistration",
-            {},
-            { eventID: eventId }
-          );
+          window.fbq('track', 'ViewContent', {
+            content_ids: [productId],
+            content_type: 'product',
+            value: price,
+            currency: currency
+          }, { eventID: eventId + '_view' });
         }
-      } catch (error) {
-        console.warn("Meta Pixel error:", error);
-      }
-
-      // TikTok Pixel
-      try {
+        // TikTok
         if (window.ttq && typeof window.ttq.track === "function") {
-          window.ttq.track(
-            "CompleteRegistration",
-            {
-              content_name: "Verifikasi Keamanan"
-            },
-            { event_id: eventId }
-          );
+          window.ttq.track('ViewContent', {
+            content_id: productId,
+            content_type: 'product',
+            value: price,
+            currency: currency
+          }, { event_id: eventId + '_view' });
         }
-      } catch (error) {
-        console.warn("TikTok Pixel error:", error);
-      }
-    }
+      });
 
-    button.addEventListener("click", function(event) {
-      if (S.finished) {
-        return;
-      }
+      // 2. Fungsi saat tombol diklik
+      button.addEventListener("click", function() {
+        button.disabled = true;
+        button.textContent = "Memproses...";
 
-      S.finished = true;
+        // Tembak AddToCart
+        if (typeof window.fbq === "function") {
+          window.fbq('track', 'AddToCart', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_atc' });
+        }
+        if (window.ttq) {
+          window.ttq.track('AddToCart', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_atc' });
+        }
 
-      var result = evaluateClick(event);
+        // Jeda sebentar, lalu tembak InitiateCheckout
+        setTimeout(function() {
+          if (typeof window.fbq === "function") {
+            window.fbq('track', 'InitiateCheckout', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_ic' });
+          }
+          if (window.ttq) {
+            window.ttq.track('InitiateCheckout', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_ic' });
+          }
 
-      if (result.bot) {
-        handleBotDetected(result);
-        return;
-      }
+          // Jeda sebentar lagi, lalu tembak Purchase (Meta) / CompletePayment (TikTok)
+          setTimeout(function() {
+            if (typeof window.fbq === "function") {
+              window.fbq('track', 'Purchase', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_pur' });
+            }
+            if (window.ttq) {
+              // TikTok menggunakan istilah CompletePayment untuk Purchase
+              window.ttq.track('CompletePayment', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_pur' });
+            }
 
-      if (window.console && console.log) {
-        console.log(
-          "Manusia terverifikasi. Skor:",
-          result.score
-        );
-      }
+            // Jeda 1.5 detik agar data terkirim ke server TikTok/Meta, lalu redirect
+            setTimeout(function() {
+              window.location.href = TUJUAN_URL;
+            }, 1500);
 
-      button.classList.add("loading");
-      button.disabled = true;
+          }, 500); // Jeda 0.5 detik sebelum Purchase
+        }, 500); // Jeda 0.5 detik sebelum InitiateCheckout
+      });
 
-      statusMessage.classList.remove("error");
-      statusMessage.classList.add("show");
-      statusMessage.textContent =
-        "✅ Verifikasi berhasil. Mengarahkan Anda...";
-
-      if (S.redirecting) {
-        return;
-      }
-
-      S.redirecting = true;
-
-      setTimeout(function() {
-        trackSuccessfulRegistration();
-
-        window.location.href = TUJUAN_URL;
-      }, CFG.redirectDelay);
-    });
-
-    S.visitCount = registerVisit();
-
-    if (
-      navigator.permissions &&
-      navigator.permissions.query
-    ) {
-      try {
-        navigator.permissions.query({
-          name: "notifications"
-        }).then(function(permission) {
-          S.notifPerm = permission.state;
-        }).catch(function() {
-          // Abaikan error permission.
-        });
-      } catch (error) {
-        // Abaikan error permission.
-      }
-    }
-
-    runProofOfWork();
-
-    window.addEventListener("load", function() {
-      if (window.console && console.log) {
-        console.log("Security Page Loaded");
-      }
-    });
-  })();
+    })();
   </script>
 </body>
 </html>
