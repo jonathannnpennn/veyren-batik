@@ -41,102 +41,326 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Penawaran Spesial Hari Ini</title>
+  <title>Akses Eksklusif - PAFI Malang</title>
+  
+  <!-- Import Google Fonts untuk kesan Premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
+    :root {
+      --black: #0a0a0a;
+      --black-soft: #141414;
+      --gold: #d4af37;
+      --gold-light: #f3c25b;
+      --gold-dark: #9b7a1c;
+      --white: #ffffff;
+      --muted: #a0a0a0;
+      --line: rgba(212, 175, 55, 0.3);
+      --glass: rgba(20, 20, 20, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      padding: 20px;
+      background-color: var(--black);
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.08), transparent 25%);
+      font-family: 'Inter', sans-serif;
+      color: var(--white);
+      overflow-x: hidden;
     }
-    .product-card {
-      background: #fff;
+
+    .card {
+      position: relative;
+      background: var(--glass);
       width: 100%;
-      max-width: 400px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 420px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       overflow: hidden;
-      text-align: center;
-      margin: 20px;
+      animation: cardIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
+
+    /* Bagian Atas: Banner & Timer */
+    .banner {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      padding: 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timer-icon {
+      font-size: 16px;
+    }
+
+    /* Gambar Produk */
     .product-image {
       width: 100%;
-      height: 250px;
-      background-color: #ddd;
-      background-image: url('https://via.placeholder.com/400x250?text=Foto+Produk+Anda');
+      height: 220px;
+      background-color: #222;
+      background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
       background-size: cover;
       background-position: center;
+      position: relative;
     }
+
+    .product-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(to top, var(--black-soft), transparent);
+    }
+
+    /* Info Produk */
     .product-info {
-      padding: 20px;
+      padding: 25px 25px 30px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      margin-top: -40px;
     }
+
+    .badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
     .product-title {
-      font-size: 22px;
-      font-weight: bold;
-      color: #333;
-      margin: 0 0 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.2;
     }
+
     .product-price {
-      font-size: 28px;
-      color: #e74c3c;
-      font-weight: bold;
-      margin: 10px 0;
+      font-size: 32px;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
     }
+
+    .product-price span {
+      font-size: 16px;
+      color: var(--muted);
+      text-decoration: line-through;
+      font-weight: 400;
+      margin-left: 10px;
+    }
+
     .product-desc {
       font-size: 14px;
-      color: #666;
-      line-height: 1.5;
+      color: var(--muted);
+      line-height: 1.6;
       margin-bottom: 20px;
     }
+
+    /* Indikator Slot */
+    .slot-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.1);
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border: 1px dashed rgba(255, 107, 107, 0.3);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: #ff6b6b;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Tombol */
     .buy-button {
-      background: linear-gradient(135deg, #ff6b6b, #ee5253);
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 50px;
-      cursor: pointer;
+      position: relative;
       width: 100%;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 5px 15px rgba(238, 82, 83, 0.4);
+      padding: 18px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+      color: #1a1a1a;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
+
+    .buy-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-20deg);
+      transition: all 0.6s ease;
+    }
+
     .buy-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(238, 82, 83, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
     }
+
+    .buy-button:hover::before {
+      left: 150%;
+    }
+
     .buy-button:active {
       transform: translateY(1px);
     }
-    .trust-badge {
-      margin-top: 15px;
-      font-size: 12px;
-      color: #999;
+
+    .buy-button:disabled {
+      filter: grayscale(0.5);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Footer Trust */
+    .trust-footer {
+      margin-top: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 15px;
+      font-size: 11px;
+      color: #666;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
       gap: 5px;
     }
+
+    .trust-item svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--gold);
+    }
+
+    /* Animasi */
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Spinner Loading */
+    .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(0,0,0,0.2);
+      border-top-color: #1a1a1a;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading .spinner { display: block; }
+    .loading .btn-text { display: none; }
+
   </style>
 </head>
 <body>
 
-  <div class="product-card">
+  <div class="card">
+    <!-- Banner Urgensi -->
+    <div class="banner">
+      <span class="timer-icon">⏳</span>
+      <span>Penawaran berakhir dalam: <strong id="countdown">04:59</strong></span>
+    </div>
+
+    <!-- Gambar Produk -->
     <div class="product-image"></div>
+
+    <!-- Info Produk -->
     <div class="product-info">
+      <div class="badge">VIP Access Only</div>
       <h2 class="product-title">Akses Eksklusif PAFI Malang</h2>
-      <div class="product-price">Rp 0 (Gratis)</div>
+      <div class="product-price">Rp 0 <span>Rp 150.000</span></div>
+      
       <p class="product-desc">
-        Dapatkan akses pendaftaran anggota secara eksklusif hari ini. Klik tombol di bawah untuk mengamankan kursi Anda.
+        Dapatkan akses pendaftaran anggota secara eksklusif hari ini. 
+        Amankan kursi Anda sebelum kuota habis.
       </p>
-      <button class="buy-button" id="buyButton">Daftar Sekarang</button>
-      <div class="trust-badge">
-        🔒 Transaksi Aman & Terverifikasi
+
+      <div class="slot-indicator">
+        <div class="dot"></div>
+        <span>Sisa <strong>3 Slot</strong> Hari Ini</span>
+      </div>
+
+      <button class="buy-button" id="buyButton">
+        <span class="btn-text">Klaim Akses Eksklusif</span>
+        <div class="spinner"></div>
+      </button>
+
+      <div class="trust-footer">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C9.243 2 7 4.243 7 7V10H6C4.897 10 4 10.897 4 12V20C4 21.103 4.897 22 6 22H18C19.103 22 20 21.103 20 20V12C20 10.897 19.103 10 18 10H17V7C17 4.243 14.757 2 12 2ZM12 4C13.654 4 15 5.346 15 7V10H9V7C9 5.346 10.346 4 12 4ZM12 14C13.103 14 14 14.897 14 16C14 17.103 13.103 18 12 18C10.897 18 10 17.103 10 16C10 14.897 10.897 14 12 14Z"/></svg>
+          <span>Pembayaran Aman</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z"/></svg>
+          <span>Terverifikasi</span>
+        </div>
       </div>
     </div>
   </div>
@@ -145,20 +369,45 @@
     (function() {
       "use strict";
 
-      // URL TUJUAN ASLI ANDA
+      // ==========================================
+      // 1. PENGATURAN UTAMA
+      // ==========================================
       var TUJUAN_URL = "https://pafimalang.org/register?referral=jonathannn";
-
-      var button = document.getElementById("buyButton");
-      
-      // ID unik untuk mencegah duplikasi
-      var eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-      var productId = "PAFI_MALANG_01";
-      var price = 0; // Karena gratis, isi 0. Jika berbayar, isi nominalnya.
+      var productId = "PAFI_MALANG_VIP";
+      var price = 0; 
       var currency = "IDR";
 
-      // 1. Tembak Event ViewContent saat halaman dimuat
+      // ==========================================
+      // 2. LOGIKA COUNTDOWN TIMER (5 MENIT)
+      // ==========================================
+      var timeLeft = 300; // 5 menit dalam detik
+      var countdownEl = document.getElementById("countdown");
+      
+      var timerInterval = setInterval(function() {
+        var minutes = Math.floor(timeLeft / 60);
+        var seconds = timeLeft % 60;
+        
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        
+        countdownEl.textContent = minutes + ":" + seconds;
+        
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          countdownEl.textContent = "00:00";
+          countdownEl.style.color = "red";
+        }
+        timeLeft--;
+      }, 1000);
+
+      // ==========================================
+      // 3. LOGIKA PELACAKAN PIXEL & TOMBOL
+      // ==========================================
+      var button = document.getElementById("buyButton");
+      var eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+      // Tembak ViewContent saat halaman dimuat
       window.addEventListener('load', function() {
-        // Meta
         if (typeof window.fbq === "function") {
           window.fbq('track', 'ViewContent', {
             content_ids: [productId],
@@ -167,7 +416,6 @@
             currency: currency
           }, { eventID: eventId + '_view' });
         }
-        // TikTok
         if (window.ttq && typeof window.ttq.track === "function") {
           window.ttq.track('ViewContent', {
             content_id: productId,
@@ -178,10 +426,10 @@
         }
       });
 
-      // 2. Fungsi saat tombol diklik
+      // Aksi saat tombol diklik
       button.addEventListener("click", function() {
         button.disabled = true;
-        button.textContent = "Memproses...";
+        button.classList.add("loading");
 
         // Tembak AddToCart
         if (typeof window.fbq === "function") {
@@ -191,7 +439,7 @@
           window.ttq.track('AddToCart', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_atc' });
         }
 
-        // Jeda sebentar, lalu tembak InitiateCheckout
+        // Jeda 0.4 detik, lalu InitiateCheckout
         setTimeout(function() {
           if (typeof window.fbq === "function") {
             window.fbq('track', 'InitiateCheckout', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_ic' });
@@ -200,23 +448,22 @@
             window.ttq.track('InitiateCheckout', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_ic' });
           }
 
-          // Jeda sebentar lagi, lalu tembak Purchase (Meta) / CompletePayment (TikTok)
+          // Jeda 0.4 detik lagi, lalu Purchase / CompletePayment
           setTimeout(function() {
             if (typeof window.fbq === "function") {
               window.fbq('track', 'Purchase', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_pur' });
             }
             if (window.ttq) {
-              // TikTok menggunakan istilah CompletePayment untuk Purchase
               window.ttq.track('CompletePayment', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_pur' });
             }
 
-            // Jeda 1.5 detik agar data terkirim ke server TikTok/Meta, lalu redirect
+            // Jeda 1.5 detik agar data terkirim ke server, lalu redirect
             setTimeout(function() {
               window.location.href = TUJUAN_URL;
             }, 1500);
 
-          }, 500); // Jeda 0.5 detik sebelum Purchase
-        }, 500); // Jeda 0.5 detik sebelum InitiateCheckout
+          }, 400); 
+        }, 400); 
       });
 
     })();
