@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <!-- =========================
-       META PIXEL (DIPERBAIKI)
+       META PIXEL
   ========================== -->
   <script>
   !function(f,b,e,v,n,t,s) {
@@ -29,7 +29,7 @@
     "https://connect.facebook.net/en_US/fbevents.js"
   );
 
-  // GANTI DENGAN META PIXEL ID YANG BENAR (Sesuai Dashboard)
+  // META PIXEL ID
   fbq("init", "DASCJ93C77U5PB60BNTG"); 
   fbq("track", "PageView");
   </script>
@@ -45,7 +45,7 @@
   </noscript>
 
   <!-- =========================
-       TIKTOK PIXEL (DIPERBAIKI)
+       TIKTOK PIXEL (DISINKRONKAN)
   ========================== -->
   <script>
   !function (w, d, t) {
@@ -53,8 +53,8 @@
     var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
     ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-    // GANTI DENGAN TIKTOK PIXEL ID YANG BENAR
-    ttq.load('DASD2GBC77U5PB60BP00');
+    // TIKTOK PIXEL ID (Sesuai Dashboard TikTok Anda)
+    ttq.load('DASCJ93C77U5PB60BNTG');
     ttq.page();
   }(window, document, 'ttq');
   </script>
@@ -1897,8 +1897,8 @@
           window.fbq(
             "track",
             "CompleteRegistration",
-            {}, // Anda bisa menambahkan parameter seperti value & currency di sini
-            { eventID: eventId } // Deduplikasi
+            {},
+            { eventID: eventId }
           );
         }
       } catch (error) {
@@ -1912,10 +1912,8 @@
             "CompleteRegistration",
             {
               content_name: "Verifikasi Keamanan"
-              // value: 1.00, // Opsional
-              // currency: "IDR" // Opsional
             },
-            { event_id: eventId } // Deduplikasi
+            { event_id: eventId }
           );
         }
       } catch (error) {
