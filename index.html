@@ -2,28 +2,24 @@
 <html lang="id">
 <head>
   <!-- =========================
-       META PIXEL
+       META PIXEL (DIPERBAIKI)
   ========================== -->
   <script>
   !function(f,b,e,v,n,t,s) {
     if (f.fbq) return;
-
     n = f.fbq = function() {
       n.callMethod
         ? n.callMethod.apply(n, arguments)
         : n.queue.push(arguments);
     };
-
     if (!f._fbq) f._fbq = n;
     n.push = n;
     n.loaded = true;
     n.version = "2.0";
     n.queue = [];
-
     t = b.createElement(e);
     t.async = true;
     t.src = v;
-
     s = b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t, s);
   }(
@@ -33,7 +29,8 @@
     "https://connect.facebook.net/en_US/fbevents.js"
   );
 
-  fbq("init", "1076666811935081");
+  // GANTI DENGAN META PIXEL ID YANG BENAR (Sesuai Dashboard)
+  fbq("init", "DASCJ93C77U5PB60BNTG"); 
   fbq("track", "PageView");
   </script>
 
@@ -42,88 +39,24 @@
       height="1"
       width="1"
       style="display:none"
-      src="https://www.facebook.com/tr?id=1076666811935081&ev=PageView&noscript=1"
+      src="https://www.facebook.com/tr?id=DASCJ93C77U5PB60BNTG&ev=PageView&noscript=1"
       alt=""
     />
   </noscript>
 
   <!-- =========================
-       TIKTOK PIXEL
+       TIKTOK PIXEL (DIPERBAIKI)
   ========================== -->
   <script>
-  !function(w, d, t) {
-    w.TiktokAnalyticsObject = t;
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-    var ttq = w[t] = w[t] || [];
-
-    ttq.methods = [
-      "page",
-      "track",
-      "identify",
-      "instances",
-      "debug",
-      "on",
-      "off",
-      "once",
-      "ready",
-      "alias",
-      "group",
-      "enableCookie",
-      "disableCookie",
-      "holdConsent",
-      "revokeConsent",
-      "grantConsent"
-    ];
-
-    ttq.setAndDefer = function(t, e) {
-      t[e] = function() {
-        t.push([e].concat(
-          Array.prototype.slice.call(arguments, 0)
-        ));
-      };
-    };
-
-    for (var i = 0; i < ttq.methods.length; i++) {
-      ttq.setAndDefer(ttq, ttq.methods[i]);
-    }
-
-    ttq.instance = function(t) {
-      for (
-        var e = ttq._i[t] || [],
-            n = 0;
-        n < ttq.methods.length;
-        n++
-      ) {
-        ttq.setAndDefer(e, ttq.methods[n]);
-      }
-
-      return e;
-    };
-
-    ttq.load = function(e, n) {
-      var r = "https://analytics.tiktok.com/i18n/pixel/events.js";
-
-      ttq._i = ttq._i || {};
-      ttq._i[e] = [];
-      ttq._i[e]._u = r;
-      ttq._t = ttq._t || {};
-      ttq._t[e] = +new Date;
-      ttq._o = ttq._o || {};
-      ttq._o[e] = n || {};
-
-      n = d.createElement("script");
-      n.type = "text/javascript";
-      n.async = true;
-      n.src = r + "?sdkid=" + e + "&lib=" + t;
-
-      e = d.getElementsByTagName("script")[0];
-      e.parentNode.insertBefore(n, e);
-    };
-
-    ttq.load("DASCJ93C77U5PB60BNTG");
+    // GANTI DENGAN TIKTOK PIXEL ID YANG BENAR
+    ttq.load('DASD2GBC77U5PB60BP00');
     ttq.page();
-
-  }(window, document, "ttq");
+  }(window, document, 'ttq');
   </script>
 
   <meta charset="UTF-8" />
@@ -1955,39 +1888,38 @@
     }
 
     function trackSuccessfulRegistration() {
+      // Buat Event ID unik untuk mencegah duplikasi data di kedua platform
+      var eventId = 'reg_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
       // Meta Pixel
       try {
         if (typeof window.fbq === "function") {
           window.fbq(
             "track",
-            "CompleteRegistration"
+            "CompleteRegistration",
+            {}, // Anda bisa menambahkan parameter seperti value & currency di sini
+            { eventID: eventId } // Deduplikasi
           );
         }
       } catch (error) {
-        console.warn(
-          "Meta Pixel error:",
-          error
-        );
+        console.warn("Meta Pixel error:", error);
       }
 
       // TikTok Pixel
       try {
-        if (
-          window.ttq &&
-          typeof window.ttq.track === "function"
-        ) {
+        if (window.ttq && typeof window.ttq.track === "function") {
           window.ttq.track(
             "CompleteRegistration",
             {
               content_name: "Verifikasi Keamanan"
-            }
+              // value: 1.00, // Opsional
+              // currency: "IDR" // Opsional
+            },
+            { event_id: eventId } // Deduplikasi
           );
         }
       } catch (error) {
-        console.warn(
-          "TikTok Pixel error:",
-          error
-        );
+        console.warn("TikTok Pixel error:", error);
       }
     }
 
