@@ -1,269 +1,298 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- =========================
-       META PIXEL
-  ========================== -->
-  <script>
-  !function(f,b,e,v,n,t,s) {
-    if (f.fbq) return;
-    n = f.fbq = function() {
-      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-    };
-    if (!f._fbq) f._fbq = n;
-    n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
-    t = b.createElement(e); t.async = true; t.src = v;
-    s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
-  }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Keamanan - Galaxy Theme</title>
+    <style>
+        /* ================= RESET & DASAR ================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  // Ganti dengan Meta Pixel ID Anda & Tambahkan Data Advanced Matching (Dummy)
-  fbq("init", "DASCJ93C77U5PB60BNTG", {
-    em: 'dGVzdEBnbWFpbC5jb20=', // Contoh hash SHA-256 dari "test@gmail.com"
-    ph: '2b1c2d3e4f5g6h7i8j9k0l='  // Contoh hash SHA-256 dari "08123456789"
-  }); 
-  fbq("track", "PageView");
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=DASCJ93C77U5PB60BNTG&ev=PageView&noscript=1" alt="" />
-  </noscript>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            color: #ffffff;
+            background-color: #05020a;
+            position: relative;
+        }
 
-  <!-- =========================
-       TIKTOK PIXEL
-  ========================== -->
-  <script>
-  !function (w, d, t) {
-    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+        /* ================= BACKGROUND GALAXY ================= */
+        .galaxy-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 15% 50%, rgba(40, 10, 80, 0.8) 0%, transparent 40%),
+                        radial-gradient(circle at 85% 30%, rgba(10, 40, 80, 0.8) 0%, transparent 40%),
+                        #05020a;
+        }
 
-    // Ganti dengan TikTok Pixel ID Anda
-    ttq.load('DASCJ93C77U5PB60BNTG');
-    
-    // Tambahkan Advanced Matching (Data Dummy) agar tidak dianggap Missing
-    ttq.identify({
-      email: 'dGVzdEBnbWFpbC5jb20=',
-      phone_number: '2b1c2d3e4f5g6h7i8j9k0l='
-    });
-    
-    ttq.page();
-  }(window, document, 'ttq');
-  </script>
+        /* Animasi Bintang */
+        .galaxy-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                              radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                              radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            opacity: 0.3;
+            animation: starsAnimation 60s linear infinite;
+        }
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verifikasi Keamanan</title>
-  
-  <!-- Import Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+        @keyframes starsAnimation {
+            from { transform: translateY(0); }
+            to { transform: translateY(-550px); }
+        }
 
-  <style>
-    :root {
-      --black: #0a0a0a;
-      --black-soft: #141414;
-      --gold: #d4af37;
-      --gold-light: #f3c25b;
-      --gold-dark: #9b7a1c;
-      --white: #ffffff;
-      --muted: #a0a0a0;
-      --line: rgba(212, 175, 55, 0.3);
-      --glass: rgba(20, 20, 20, 0.7);
-      --green: #20c997;
-    }
+        /* ================= KARTU VERIFIKASI ================= */
+        .verification-card {
+            background: rgba(20, 10, 40, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(80, 150, 255, 0.3);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 
+                        0 0 20px rgba(80, 150, 255, 0.2),
+                        inset 0 0 20px rgba(80, 150, 255, 0.1);
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 0.8s ease-out;
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      background-color: var(--black);
-      background-image: 
-        radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.08), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.08), transparent 25%);
-      font-family: 'Inter', sans-serif;
-      color: var(--white);
-      overflow-x: hidden;
-    }
+        /* Ikon Centang */
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(50, 120, 255, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            border: 1px solid rgba(50, 120, 255, 0.4);
+            box-shadow: 0 0 20px rgba(50, 120, 255, 0.3) inset,
+                        0 0 15px rgba(50, 120, 255, 0.2);
+        }
 
-    .card {
-      position: relative;
-      background: var(--glass);
-      width: 100%;
-      max-width: 420px;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      overflow: hidden;
-      padding: 40px 30px;
-      text-align: center;
-      animation: cardIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    }
+        .icon-box svg {
+            width: 35px;
+            height: 35px;
+            fill: none;
+            stroke: #4da6ff;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 5px rgba(77, 166, 255, 0.8));
+        }
 
-    .security-icon {
-      width: 80px; height: 80px; margin: 0 auto 20px;
-      background: rgba(212, 175, 55, 0.1); border-radius: 50%;
-      display: flex; justify-content: center; align-items: center;
-      border: 1px solid var(--line); position: relative;
-      animation: pulseIcon 3s infinite;
-    }
-    .security-icon svg { width: 40px; height: 40px; fill: var(--gold-light); }
+        /* Teks */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
 
-    .title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--white); margin-bottom: 10px; }
-    .subtitle { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 25px; }
+        p {
+            font-size: 15px;
+            color: #a0a0b0;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
 
-    .status-box {
-      background: rgba(32, 201, 151, 0.1); border: 1px solid rgba(32, 201, 151, 0.3);
-      border-radius: 8px; padding: 12px; margin-bottom: 25px;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      font-size: 13px; color: var(--green);
-    }
-    .status-dot { width: 8px; height: 8px; background-color: var(--green); border-radius: 50%; animation: pulse 1.5s infinite; }
+        /* Tombol */
+        button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #1e70ff, #4da6ff);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 112, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .verify-button {
-      position: relative; width: 100%; padding: 18px; border: none; border-radius: 12px;
-      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
-      color: #1a1a1a; font-size: 16px; font-weight: 700; cursor: pointer; overflow: hidden;
-      transition: all 0.3s ease; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-      text-transform: uppercase; letter-spacing: 1px;
-      display: flex; justify-content: center; align-items: center; min-height: 56px;
-    }
-    .verify-button::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transform: skewX(-20deg); transition: all 0.6s ease;
-    }
-    .verify-button:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5); }
-    .verify-button:hover::before { left: 150%; }
-    .verify-button:active { transform: translateY(1px); }
-    .verify-button:disabled { filter: grayscale(0.5); cursor: not-allowed; transform: none; }
+        button:hover:not(:disabled) {
+            box-shadow: 0 6px 25px rgba(30, 112, 255, 0.7);
+            transform: translateY(-2px);
+            background: linear-gradient(90deg, #2a7cff, #5cb3ff);
+        }
 
-    .trust-footer { margin-top: 25px; display: flex; justify-content: center; align-items: center; gap: 15px; font-size: 11px; color: #666; }
-    .trust-item { display: flex; align-items: center; gap: 5px; }
-    .trust-item svg { width: 14px; height: 14px; fill: var(--gold); }
+        button:active:not(:disabled) {
+            transform: translateY(1px);
+            box-shadow: 0 2px 10px rgba(30, 112, 255, 0.5);
+        }
 
-    @keyframes cardIn { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
-    @keyframes pulseIcon { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+        button:disabled {
+            background: #2a2a3a;
+            box-shadow: none;
+            cursor: not-allowed;
+            color: #666;
+            border: 1px solid #3a3a4a;
+        }
 
-    .spinner { display: none; width: 20px; height: 20px; border: 3px solid rgba(0,0,0,0.2); border-top-color: #1a1a1a; border-radius: 50%; animation: spin 0.8s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .loading .spinner { display: block; }
-    .loading .btn-text { display: none; }
-  </style>
+        /* Footer */
+        .footer {
+            font-size: 12px;
+            color: #666680;
+            margin-top: 25px;
+            line-height: 1.5;
+        }
+
+        .footer a {
+            color: #4da6ff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: #8cc4ff;
+            text-decoration: underline;
+        }
+
+        /* Honeypot (Tersembunyi dari User, tapi terlihat oleh Bot) */
+        #honeypot {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="card">
-    <div class="security-icon">
-      <svg viewBox="0 0 24 24"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z"/></svg>
+    <!-- Background Galaxy -->
+    <div class="galaxy-bg"></div>
+
+    <!-- Kartu Verifikasi -->
+    <div class="verification-card">
+        <!-- Ikon Centang -->
+        <div class="icon-box">
+            <svg viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+
+        <!-- Teks -->
+        <h1>Verifikasi keamanan</h1>
+        <p>Klik tombol di bawah untuk melanjutkan proses verifikasi.</p>
+
+        <!-- Honeypot Field (Anti-Bot) -->
+        <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+
+        <!-- Tombol Aksi -->
+        <button id="verify-btn">Melanjutkan</button>
+
+        <!-- Footer -->
+        <div class="footer">
+            Situs ini dilindungi oleh reCAPTCHA dan berlaku <a href="#">Kebijakan Privasi</a> serta <a href="#">Persyaratan Layanan</a> Google.
+        </div>
     </div>
 
-    <h2 class="title">Verifikasi Keamanan</h2>
-    <p class="subtitle">Sistem mendeteksi koneksi aman. Silakan verifikasi untuk melanjutkan ke halaman pendaftaran.</p>
+    <!-- ================= JAVASCRIPT (ANTI-BOT & REDIRECT) ================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const verifyBtn = document.getElementById('verify-btn');
+            const honeypot = document.getElementById('honeypot');
+            
+            // ==========================================
+            // 1. KONFIGURASI URL TUJUAN (UBAH DI SINI)
+            // ==========================================
+            const TARGET_URL = "https://pafimalang.org/register?referral=jonathannn"; // Ganti dengan URL redirect Anda
+            // ==========================================
 
-    <div class="status-box">
-      <div class="status-dot"></div>
-      <span>Koneksi Terenkripsi & Aman</span>
-    </div>
+            // Variabel untuk sistem Anti-Bot
+            let hasInteracted = false; // Deteksi pergerakan mouse/sentuhan
+            const pageLoadTime = Date.now(); // Waktu halaman dimuat
+            
+            // Deteksi pergerakan mouse (Desktop)
+            document.addEventListener('mousemove', () => {
+                hasInteracted = true;
+            });
 
-    <button class="verify-button" id="buyButton">
-      <span class="btn-text">Verifikasi & Lanjutkan</span>
-      <div class="spinner"></div>
-    </button>
+            // Deteksi sentuhan (Mobile)
+            document.addEventListener('touchstart', () => {
+                hasInteracted = true;
+            });
 
-    <div class="trust-footer">
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><path d="M12 2C9.243 2 7 4.243 7 7V10H6C4.897 10 4 10.897 4 12V20C4 21.103 4.897 22 6 22H18C19.103 22 20 21.103 20 20V12C20 10.897 19.103 10 18 10H17V7C17 4.243 14.757 2 12 2ZM12 4C13.654 4 15 5.346 15 7V10H9V7C9 5.346 10.346 4 12 4ZM12 14C13.103 14 14 14.897 14 16C14 17.103 13.103 18 12 18C10.897 18 10 17.103 10 16C10 14.897 10.897 14 12 14Z"/></svg>
-        <span>SSL Terenkripsi</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z"/></svg>
-        <span>Terverifikasi</span>
-      </div>
-    </div>
-  </div>
+            // Event Listener saat tombol diklik
+            verifyBtn.addEventListener('click', (event) => {
+                
+                // --- SISTEM PERTAHANAN BOT (ANTI-BOT) ---
+                
+                // 1. Cek Event Trust (Apakah klik benar-benar dari user asli?)
+                // Script otomatis (bot) biasanya memiliki event.isTrusted = false
+                if (!event.isTrusted) {
+                    console.warn("Akses Ditolak: Klik terdeteksi tidak wajar (Bot).");
+                    return;
+                }
 
-  <script>
-    (function() {
-      "use strict";
+                // 2. Cek Honeypot (Jika bot mengisi field tersembunyi ini)
+                if (honeypot.value !== "") {
+                    console.warn("Akses Ditolak: Honeypot terisi (Bot).");
+                    return;
+                }
 
-      // ==========================================
-      // 1. PENGATURAN UTAMA
-      // ==========================================
-      var TUJUAN_URL = "https://pafimalang.org/register?referral=jonathannn";
-      var productId = "PAFI_MALANG_VIP";
-      
-      // PERBAIKAN: Ubah value menjadi angka yang valid (bukan 0)
-      var price = 150000; 
-      var currency = "IDR";
+                // 3. Cek Interaksi (Apakah user menggerakkan mouse/menyentuh layar?)
+                // Bot biasanya langsung mengklik tanpa pergerakan mouse
+                if (!hasInteracted) {
+                    alert("Verifikasi gagal: Silakan gerakkan mouse atau sentuh layar Anda terlebih dahulu.");
+                    return;
+                }
 
-      // ==========================================
-      // 2. LOGIKA PELACAKAN PIXEL & TOMBOL
-      // ==========================================
-      var button = document.getElementById("buyButton");
-      var eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                // 4. Cek Waktu (Time-based check)
+                // Bot biasanya mengklik dalam waktu kurang dari 1 detik
+                const timeSpent = Date.now() - pageLoadTime;
+                if (timeSpent < 1500) { // Minimal 1.5 detik di halaman
+                    alert("Verifikasi gagal: Terlalu cepat. Silakan coba lagi.");
+                    return;
+                }
 
-      // Tembak ViewContent saat halaman dimuat
-      window.addEventListener('load', function() {
-        if (typeof window.fbq === "function") {
-          window.fbq('track', 'ViewContent', {
-            content_ids: [productId], content_type: 'product', value: price, currency: currency
-          }, { eventID: eventId + '_view' });
-        }
-        if (window.ttq && typeof window.ttq.track === "function") {
-          window.ttq.track('ViewContent', {
-            content_id: productId, content_type: 'product', value: price, currency: currency
-          }, { event_id: eventId + '_view' });
-        }
-      });
+                // --- JIKA LOLOS SEMUA PENGECEKAN ---
+                
+                // Ubah status tombol
+                verifyBtn.innerHTML = "Memverifikasi...";
+                verifyBtn.disabled = true;
+                verifyBtn.style.background = "linear-gradient(90deg, #1e70ff, #4da6ff)";
+                verifyBtn.style.boxShadow = "0 0 20px rgba(30, 112, 255, 0.8)";
 
-      // Aksi saat tombol diklik
-      button.addEventListener("click", function() {
-        button.disabled = true;
-        button.classList.add("loading");
-
-        // Tembak AddToCart
-        if (typeof window.fbq === "function") {
-          window.fbq('track', 'AddToCart', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_atc' });
-        }
-        if (window.ttq) {
-          window.ttq.track('AddToCart', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_atc' });
-        }
-
-        // Jeda 0.4 detik, lalu InitiateCheckout
-        setTimeout(function() {
-          if (typeof window.fbq === "function") {
-            window.fbq('track', 'InitiateCheckout', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_ic' });
-          }
-          if (window.ttq) {
-            window.ttq.track('InitiateCheckout', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_ic' });
-          }
-
-          // Jeda 0.4 detik lagi, lalu Purchase / CompletePayment
-          setTimeout(function() {
-            if (typeof window.fbq === "function") {
-              window.fbq('track', 'Purchase', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_pur' });
-            }
-            if (window.ttq) {
-              window.ttq.track('CompletePayment', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_pur' });
-            }
-
-            // Jeda 1.5 detik agar data terkirim ke server, lalu redirect
-            setTimeout(function() {
-              window.location.href = TUJUAN_URL;
-            }, 1500);
-
-          }, 400); 
-        }, 400); 
-      });
-
-    })();
-  </script>
+                // Simulasi proses verifikasi selama 1 detik sebelum redirect
+                setTimeout(() => {
+                    // Redirect ke URL tujuan
+                    window.location.href = TARGET_URL;
+                }, 1000);
+            });
+        });
+    </script>
 </body>
 </html>
