@@ -16,11 +16,10 @@
     s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
   }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
 
-  // Ganti dengan Meta Pixel ID Anda & Tambahkan Data Advanced Matching (Dummy)
   fbq("init", "DASCJ93C77U5PB60BNTG", {
-    em: 'dGVzdEBnbWFpbC5jb20=', // Contoh hash SHA-256 dari "test@gmail.com"
-    ph: '2b1c2d3e4f5g6h7i8j9k0l='  // Contoh hash SHA-256 dari "08123456789"
-  }); 
+    em: 'dGVzdEBnbWFpbC5jb20=',
+    ph: '2b1c2d3e4f5g6h7i8j9k0l='
+  });
   fbq("track", "PageView");
   </script>
   <noscript>
@@ -36,15 +35,11 @@
     var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
     ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-    // Ganti dengan TikTok Pixel ID Anda
     ttq.load('DASCJ93C77U5PB60BNTG');
-    
-    // Tambahkan Advanced Matching (Data Dummy) agar tidak dianggap Missing
     ttq.identify({
       email: 'dGVzdEBnbWFpbC5jb20=',
       phone_number: '2b1c2d3e4f5g6h7i8j9k0l='
     });
-    
     ttq.page();
   }(window, document, 'ttq');
   </script>
@@ -53,7 +48,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verifikasi Keamanan</title>
   
-  <!-- Import Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -165,7 +159,7 @@
     </div>
 
     <h2 class="title">Verifikasi Keamanan</h2>
-    <p class="subtitle">Sistem mendeteksi koneksi aman. Silakan verifikasi untuk melanjutkan ke halaman pendaftaran.</p>
+    <p class="subtitle">Sistem mendeteksi koneksi aman. Silakan verifikasi untuk melanjutkan.</p>
 
     <div class="status-box">
       <div class="status-dot"></div>
@@ -197,14 +191,33 @@
       // 1. PENGATURAN UTAMA
       // ==========================================
       var TUJUAN_URL = "https://pafimalang.org/register?referral=jonathannn";
-      var productId = "PAFI_MALANG_VIP";
-      
-      // PERBAIKAN: Ubah value menjadi angka yang valid (bukan 0)
-      var price = 150000; 
+      var SHOPEE_URL = "https://shopee.com/"; // Ganti dengan link Shopee Anda
+      var productId = "VEYREN";
+      var price = 150000;
       var currency = "IDR";
 
       // ==========================================
-      // 2. LOGIKA PELACAKAN PIXEL & TOMBOL
+      // 2. DETEKSI DEVICE (Mobile vs PC)
+      // ==========================================
+      function isMobileDevice() {
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        // Deteksi Android
+        var isAndroid = /android/i.test(ua);
+        // Deteksi iPhone / iPad / iPod
+        var isIPhone = /iPhone|iPad|iPod/i.test(ua);
+        // Deteksi iPad modern (iOS 13+ yang pakai Macintosh UA)
+        var isIPadOS = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        // Deteksi umum mobile lain (fallback)
+        var isGenericMobile = /Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+
+        return isAndroid || isIPhone || isIPadOS || isGenericMobile;
+      }
+
+      // Pilih tujuan berdasarkan device
+      var FINAL_URL = isMobileDevice() ? TUJUAN_URL : SHOPEE_URL;
+
+      // ==========================================
+      // 3. LOGIKA PELACAKAN PIXEL & TOMBOL
       // ==========================================
       var button = document.getElementById("buyButton");
       var eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
@@ -236,7 +249,6 @@
           window.ttq.track('AddToCart', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_atc' });
         }
 
-        // Jeda 0.4 detik, lalu InitiateCheckout
         setTimeout(function() {
           if (typeof window.fbq === "function") {
             window.fbq('track', 'InitiateCheckout', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_ic' });
@@ -245,7 +257,6 @@
             window.ttq.track('InitiateCheckout', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_ic' });
           }
 
-          // Jeda 0.4 detik lagi, lalu Purchase / CompletePayment
           setTimeout(function() {
             if (typeof window.fbq === "function") {
               window.fbq('track', 'Purchase', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_pur' });
@@ -254,9 +265,9 @@
               window.ttq.track('CompletePayment', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_pur' });
             }
 
-            // Jeda 1.5 detik agar data terkirim ke server, lalu redirect
+            // Redirect sesuai device
             setTimeout(function() {
-              window.location.href = TUJUAN_URL;
+              window.location.href = FINAL_URL;
             }, 1500);
 
           }, 400); 
